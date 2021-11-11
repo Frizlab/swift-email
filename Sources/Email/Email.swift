@@ -44,3 +44,26 @@ extension Email : RawRepresentable {
 	}
 	
 }
+
+
+extension Email : Codable {
+	
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.singleValueContainer()
+		let stringValue = try container.decode(String.self)
+		
+		let v = EmailValidator(string: stringValue)
+		let (validationResult, localPart, domainPart) = v.evaluateEmail()
+		guard validationResult.category.value < EmailValidator.ValidationCategory.err.value else {
+			throw DecodingError.dataCorrupted(.init(codingPath: [], debugDescription: "Invalid email", underlyingError: nil))
+		}
+		self.localPart = localPart
+		self.domainPart = domainPart
+	}
+	
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.singleValueContainer()
+		try container.encode(rawValue)
+	}
+	
+}
