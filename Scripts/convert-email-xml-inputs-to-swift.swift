@@ -4,6 +4,22 @@
 import Foundation
 
 
+
+let scriptURL = URL(fileURLWithPath: CommandLine.arguments[0], isDirectory: false)
+let projectDirURL = scriptURL.deletingLastPathComponent().deletingLastPathComponent()
+/* INPUTS */
+let xmlEmailMetaURL = URL(fileURLWithPath: "docs/dominicsayers-isemail/test/meta.xml", isDirectory: false, relativeTo: projectDirURL)
+let xmlEmailTests1URL = URL(fileURLWithPath: "docs/dominicsayers-isemail/test/tests.xml", isDirectory: false, relativeTo: projectDirURL)
+let xmlEmailTests2URL = URL(fileURLWithPath: "docs/dominicsayers-isemail/test/tests-original.xml", isDirectory: false, relativeTo: projectDirURL)
+/* OUTPUTS */
+let swiftEmailTestsURL = URL(fileURLWithPath: "Tests/EmailTests/DominicSayersTests.swift", isDirectory: false, relativeTo: projectDirURL)
+let swiftEmailMetaURL = URL(fileURLWithPath: "Sources/Email/EmailValidator+ValidationCodes.swift", isDirectory: false, relativeTo: projectDirURL)
+
+
+/* USER CONSTANTS */
+let isEmailPrefix = "ISEMAIL_"
+
+/* ABSOLUTE CONSTANTS */
 let nonLossyASCIITab = #"\011"#
 let nonLossyASCIINewLine = #"\012"#
 let nonLossyASCIIOctothorpe = #"\043"#
@@ -16,16 +32,6 @@ assert(String(data: Data(nonLossyASCIIOctothorpe.utf8), encoding: .nonLossyASCII
 assert(String(data: Data(nonLossyASCIIDoubleQuote.utf8), encoding: .nonLossyASCII)! == "\"")
 assert(String(data: Data(nonLossyASCIICarriageReturn.utf8), encoding: .nonLossyASCII)! == "\r")
 
-
-let isEmailPrefix = "ISEMAIL_"
-
-let scriptURL = URL(fileURLWithPath: CommandLine.arguments[0], isDirectory: false)
-let projectDirURL = scriptURL.deletingLastPathComponent().deletingLastPathComponent()
-let xmlEmailMetaURL = URL(fileURLWithPath: "docs/dominicsayers-isemail/test/meta.xml", isDirectory: false, relativeTo: projectDirURL)
-let xmlEmailTests1URL = URL(fileURLWithPath: "docs/dominicsayers-isemail/test/tests.xml", isDirectory: false, relativeTo: projectDirURL)
-let xmlEmailTests2URL = URL(fileURLWithPath: "docs/dominicsayers-isemail/test/tests-original.xml", isDirectory: false, relativeTo: projectDirURL)
-let swiftEmailTestsURL = URL(fileURLWithPath: "Tests/EmailValidatorTests/EmailValidatorTests.swift", isDirectory: false, relativeTo: projectDirURL)
-let swiftEmailMetaURL = URL(fileURLWithPath: "Sources/EmailValidator/EmailValidator+ValidationCodes.swift", isDirectory: false, relativeTo: projectDirURL)
 
 let dateFormatter = DateFormatter()
 dateFormatter.locale = Locale(identifier: "en_US")
@@ -99,7 +105,7 @@ var swiftEmailValidationCodesFileContent = """
  * !!! Don’t change manually.
  *
  * \(swiftEmailMetaURL.lastPathComponent)
- * EmailValidator
+ * Email
  *
  * Created by \(scriptURL.lastPathComponent) on \(dateFormatter.string(from: Date())).
  */
@@ -426,17 +432,18 @@ var swiftEmailTestsFileContent = """
  * !!! Don’t change manually.
  *
  * \(swiftEmailTestsURL.lastPathComponent)
- * EmailValidatorTests
+ * EmailTests
  *
  * Created by \(scriptURL.lastPathComponent) on \(dateFormatter.string(from: Date())).
  */
 
 import XCTest
-@testable import EmailValidator
+
+@testable import Email
 
 
 
-class EmailValidatorTests : XCTestCase {
+class \(swiftEmailTestsURL.deletingPathExtension().lastPathComponent) : XCTestCase {
 
 """
 

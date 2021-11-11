@@ -3,14 +3,14 @@ import PackageDescription
 
 
 let package = Package(
-	name: "EmailValidator",
+	name: "swift-email",
 	products: [
-		.library(name: "EmailValidator", targets: ["EmailValidator"]),
+		.library(name: "Email", targets: ["Email"]),
 	],
 	dependencies: [
 	],
 	targets: [
-		.target(name: "EmailValidator", dependencies: []),
-		.testTarget(name: "EmailValidatorTests", dependencies: ["EmailValidator"]),
+		.target(name: "Email", dependencies: []),
+		.testTarget(name: "EmailTests", dependencies: ["Email"])
 	]
 )
