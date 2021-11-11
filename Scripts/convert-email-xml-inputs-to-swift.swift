@@ -8,9 +8,9 @@ import Foundation
 let scriptURL = URL(fileURLWithPath: CommandLine.arguments[0], isDirectory: false)
 let projectDirURL = scriptURL.deletingLastPathComponent().deletingLastPathComponent()
 /* INPUTS */
-let xmlEmailMetaURL = URL(fileURLWithPath: "docs/dominicsayers-isemail/test/meta.xml", isDirectory: false, relativeTo: projectDirURL)
-let xmlEmailTests1URL = URL(fileURLWithPath: "docs/dominicsayers-isemail/test/tests.xml", isDirectory: false, relativeTo: projectDirURL)
-let xmlEmailTests2URL = URL(fileURLWithPath: "docs/dominicsayers-isemail/test/tests-original.xml", isDirectory: false, relativeTo: projectDirURL)
+let xmlEmailMetaURL = URL(fileURLWithPath: "Docs/dominicsayers-isemail/test/meta.xml", isDirectory: false, relativeTo: projectDirURL)
+let xmlEmailTests1URL = URL(fileURLWithPath: "Docs/dominicsayers-isemail/test/tests.xml", isDirectory: false, relativeTo: projectDirURL)
+let xmlEmailTests2URL = URL(fileURLWithPath: "Docs/dominicsayers-isemail/test/tests-original.xml", isDirectory: false, relativeTo: projectDirURL)
 /* OUTPUTS */
 let swiftEmailTestsURL = URL(fileURLWithPath: "Tests/EmailTests/DominicSayersTests.swift", isDirectory: false, relativeTo: projectDirURL)
 let swiftEmailMetaURL = URL(fileURLWithPath: "Sources/Email/EmailValidator+ValidationCodes.swift", isDirectory: false, relativeTo: projectDirURL)
