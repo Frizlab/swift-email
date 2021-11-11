@@ -14,33 +14,22 @@ See the License for the specific language governing permissions and
 limitations under the License. */
 
 import Foundation
+import XCTest
+
+@testable import Email
 
 
 
-public struct Email {
+class EmailTests : XCTestCase {
 	
-	public var localPart: String
-	public var domainPart: String
-	
-}
-
-
-extension Email : RawRepresentable {
-	
-	public typealias RawValue = String
-	
-	public init?(rawValue: String) {
-		let v = EmailValidator(string: rawValue)
-		let (validationResult, localPart, domainPart) = v.evaluateEmail()
-		guard validationResult.category.value < EmailValidator.ValidationCategory.err.value else {
-			return nil
-		}
-		self.localPart = localPart
-		self.domainPart = domainPart
+	func testBasicEmail() throws {
+		let email = try XCTUnwrap(Email(rawValue: "fload@me.com"))
+		XCTAssertEqual(email.rawValue, "fload@me.com")
 	}
 	
-	public var rawValue: String {
-		return localPart + "@" + domainPart
+	func testCommentEmail() throws {
+		let email = try XCTUnwrap(Email(rawValue: "fload(The Best)@me.com"))
+		XCTAssertEqual(email.rawValue, "fload@me.com")
 	}
 	
 }

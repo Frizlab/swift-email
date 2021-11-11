@@ -19,7 +19,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Michael Rushton (https://squiloople.com/tag/email/) */
 	func testXMLTest1() {
 		let email = String(data: Data(#""#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errNodomain)
 	}
@@ -27,7 +27,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Michael Rushton (https://squiloople.com/tag/email/) */
 	func testXMLTest2() {
 		let email = String(data: Data(#"test"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errNodomain)
 	}
@@ -35,7 +35,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Michael Rushton (https://squiloople.com/tag/email/) */
 	func testXMLTest3() {
 		let email = String(data: Data(#"@"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errNolocalpart)
 	}
@@ -43,7 +43,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Michael Rushton (https://squiloople.com/tag/email/) */
 	func testXMLTest4() {
 		let email = String(data: Data(#"test@"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errNodomain)
 	}
@@ -51,7 +51,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Michael Rushton (https://squiloople.com/tag/email/) */
 	func testXMLTest5() {
 		let email = String(data: Data(#"test@io"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5321) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5321Tld)
 	}
@@ -59,7 +59,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Michael Rushton (https://squiloople.com/tag/email/) */
 	func testXMLTest6() {
 		let email = String(data: Data(#"@io"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errNolocalpart)
 	}
@@ -67,7 +67,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Michael Rushton (https://squiloople.com/tag/email/) */
 	func testXMLTest7() {
 		let email = String(data: Data(#"@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errNolocalpart)
 	}
@@ -75,7 +75,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Michael Rushton (https://squiloople.com/tag/email/) */
 	func testXMLTest8() {
 		let email = String(data: Data(#"test@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .validCategory) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .valid)
 	}
@@ -83,7 +83,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Michael Rushton (https://squiloople.com/tag/email/) */
 	func testXMLTest9() {
 		let email = String(data: Data(#"test@nominet.org.uk"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .validCategory) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .valid)
 	}
@@ -91,7 +91,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Michael Rushton (https://squiloople.com/tag/email/) */
 	func testXMLTest10() {
 		let email = String(data: Data(#"test@about.museum"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .validCategory) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .valid)
 	}
@@ -99,7 +99,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Michael Rushton (https://squiloople.com/tag/email/) */
 	func testXMLTest11() {
 		let email = String(data: Data(#"a@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .validCategory) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .valid)
 	}
@@ -107,7 +107,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Michael Rushton (https://squiloople.com/tag/email/) */
 	func testXMLTest12() {
 		let email = String(data: Data(#"test@e.com"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .validCategory) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .valid)
 	}
@@ -115,7 +115,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Michael Rushton (https://squiloople.com/tag/email/) */
 	func testXMLTest13() {
 		let email = String(data: Data(#"test@iana.a"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .validCategory) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .valid)
 	}
@@ -123,7 +123,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Michael Rushton (https://squiloople.com/tag/email/) */
 	func testXMLTest14() {
 		let email = String(data: Data(#"test.test@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .validCategory) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .valid)
 	}
@@ -131,7 +131,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Michael Rushton (https://squiloople.com/tag/email/) */
 	func testXMLTest15() {
 		let email = String(data: Data(#".test@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errDotStart)
 	}
@@ -139,7 +139,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Michael Rushton (https://squiloople.com/tag/email/) */
 	func testXMLTest16() {
 		let email = String(data: Data(#"test.@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errDotEnd)
 	}
@@ -147,7 +147,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Michael Rushton (https://squiloople.com/tag/email/) */
 	func testXMLTest17() {
 		let email = String(data: Data(#"test..iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errConsecutivedots)
 	}
@@ -155,7 +155,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Michael Rushton (https://squiloople.com/tag/email/) */
 	func testXMLTest18() {
 		let email = String(data: Data(#"test_exa-mple.com"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errNodomain)
 	}
@@ -163,7 +163,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Michael Rushton (https://squiloople.com/tag/email/) */
 	func testXMLTest19() {
 		let email = String(data: Data(#"!\043$%&`*+/=?^`{|}~@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .validCategory) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .valid)
 	}
@@ -171,7 +171,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Michael Rushton (https://squiloople.com/tag/email/) */
 	func testXMLTest20() {
 		let email = String(data: Data(#"test\\@test@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errExpectingAtext)
 	}
@@ -179,7 +179,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Michael Rushton (https://squiloople.com/tag/email/) */
 	func testXMLTest21() {
 		let email = String(data: Data(#"123@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .validCategory) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .valid)
 	}
@@ -187,7 +187,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Michael Rushton (https://squiloople.com/tag/email/) */
 	func testXMLTest22() {
 		let email = String(data: Data(#"test@123.com"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .validCategory) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .valid)
 	}
@@ -195,7 +195,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Michael Rushton (https://squiloople.com/tag/email/) */
 	func testXMLTest23() {
 		let email = String(data: Data(#"test@iana.123"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5321) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5321Tldnumeric)
 	}
@@ -203,7 +203,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Michael Rushton (https://squiloople.com/tag/email/) */
 	func testXMLTest24() {
 		let email = String(data: Data(#"test@255.255.255.255"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5321) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5321Tldnumeric)
 	}
@@ -211,7 +211,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Michael Rushton (https://squiloople.com/tag/email/) */
 	func testXMLTest25() {
 		let email = String(data: Data(#"abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghiklm@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .validCategory) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .valid)
 	}
@@ -219,7 +219,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Michael Rushton (https://squiloople.com/tag/email/) */
 	func testXMLTest26() {
 		let email = String(data: Data(#"abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghiklmn@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5322) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5322LocalToolong)
 	}
@@ -227,7 +227,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Michael Rushton (https://squiloople.com/tag/email/) */
 	func testXMLTest27() {
 		let email = String(data: Data(#"test@abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghikl.com"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .validCategory) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .valid)
 	}
@@ -235,7 +235,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Michael Rushton (https://squiloople.com/tag/email/) */
 	func testXMLTest28() {
 		let email = String(data: Data(#"test@abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghiklm.com"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5322) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5322LabelToolong)
 	}
@@ -243,7 +243,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Michael Rushton (https://squiloople.com/tag/email/) */
 	func testXMLTest29() {
 		let email = String(data: Data(#"test@mason-dixon.com"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .validCategory) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .valid)
 	}
@@ -251,7 +251,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Michael Rushton (https://squiloople.com/tag/email/) */
 	func testXMLTest30() {
 		let email = String(data: Data(#"test@-iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errDomainhyphenstart)
 	}
@@ -259,7 +259,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Michael Rushton (https://squiloople.com/tag/email/) */
 	func testXMLTest31() {
 		let email = String(data: Data(#"test@iana-.com"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errDomainhyphenend)
 	}
@@ -267,7 +267,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Michael Rushton (https://squiloople.com/tag/email/) */
 	func testXMLTest32() {
 		let email = String(data: Data(#"test@c--n.com"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .validCategory) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .valid)
 	}
@@ -275,7 +275,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Michael Rushton (https://squiloople.com/tag/email/) */
 	func testXMLTest33() {
 		let email = String(data: Data(#"test@iana.co-uk"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .validCategory) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .valid)
 	}
@@ -283,7 +283,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Michael Rushton (https://squiloople.com/tag/email/) */
 	func testXMLTest34() {
 		let email = String(data: Data(#"test@.iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errDotStart)
 	}
@@ -291,7 +291,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Michael Rushton (https://squiloople.com/tag/email/) */
 	func testXMLTest35() {
 		let email = String(data: Data(#"test@iana.org."#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errDotEnd)
 	}
@@ -299,7 +299,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Michael Rushton (https://squiloople.com/tag/email/) */
 	func testXMLTest36() {
 		let email = String(data: Data(#"test@iana..com"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errConsecutivedots)
 	}
@@ -307,7 +307,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Michael Rushton (https://squiloople.com/tag/email/) */
 	func testXMLTest37() {
 		let email = String(data: Data(#"a@a.b.c.d.e.f.g.h.i.j.k.l.m.n.o.p.q.r.s.t.u.v.w.x.y.z.a.b.c.d.e.f.g.h.i.j.k.l.m.n.o.p.q.r.s.t.u.v.w.x.y.z.a.b.c.d.e.f.g.h.i.j.k.l.m.n.o.p.q.r.s.t.u.v.w.x.y.z.a.b.c.d.e.f.g.h.i.j.k.l.m.n.o.p.q.r.s.t.u.v.w.x.y.z.a.b.c.d.e.f.g.h.i.j.k.l.m.n.o.p.q.r.s.t.u.v"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .validCategory) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .valid)
 	}
@@ -315,7 +315,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Michael Rushton (https://squiloople.com/tag/email/) */
 	func testXMLTest38() {
 		let email = String(data: Data(#"abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghiklm@abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghikl.abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghikl.abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghi"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .validCategory) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .valid)
 	}
@@ -323,7 +323,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Michael Rushton (https://squiloople.com/tag/email/) */
 	func testXMLTest39() {
 		let email = String(data: Data(#"abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghiklm@abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghikl.abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghikl.abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghij"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5322) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5322Toolong)
 	}
@@ -331,7 +331,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Michael Rushton (https://squiloople.com/tag/email/) */
 	func testXMLTest40() {
 		let email = String(data: Data(#"a@abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghikl.abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghikl.abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghikl.abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefg.hij"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5322) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5322Toolong)
 	}
@@ -339,7 +339,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Michael Rushton (https://squiloople.com/tag/email/) */
 	func testXMLTest41() {
 		let email = String(data: Data(#"a@abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghikl.abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghikl.abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghikl.abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefg.hijk"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5322) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5322DomainToolong)
 	}
@@ -347,7 +347,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Michael Rushton (https://squiloople.com/tag/email/) */
 	func testXMLTest42() {
 		let email = String(data: Data(#"\042test\042@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5321) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5321Quotedstring)
 	}
@@ -355,7 +355,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Michael Rushton (https://squiloople.com/tag/email/) */
 	func testXMLTest43() {
 		let email = String(data: Data(#"\042\042@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5321) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5321Quotedstring)
 	}
@@ -363,7 +363,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Michael Rushton (https://squiloople.com/tag/email/) */
 	func testXMLTest44() {
 		let email = String(data: Data(#"\042\042\042@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errExpectingAtext)
 	}
@@ -371,7 +371,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Michael Rushton (https://squiloople.com/tag/email/) */
 	func testXMLTest45() {
 		let email = String(data: Data(#"\042\\a\042@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5321) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5321Quotedstring)
 	}
@@ -379,7 +379,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Michael Rushton (https://squiloople.com/tag/email/) */
 	func testXMLTest46() {
 		let email = String(data: Data(#"\042\\\042\042@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5321) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5321Quotedstring)
 	}
@@ -387,7 +387,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Michael Rushton (https://squiloople.com/tag/email/) */
 	func testXMLTest47() {
 		let email = String(data: Data(#"\042\\\042@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errUnclosedquotedstr)
 	}
@@ -395,7 +395,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Michael Rushton (https://squiloople.com/tag/email/) */
 	func testXMLTest48() {
 		let email = String(data: Data(#"\042\\\\\042@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5321) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5321Quotedstring)
 	}
@@ -403,7 +403,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Michael Rushton (https://squiloople.com/tag/email/) */
 	func testXMLTest49() {
 		let email = String(data: Data(#"test\042@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errExpectingAtext)
 	}
@@ -411,7 +411,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Michael Rushton (https://squiloople.com/tag/email/) */
 	func testXMLTest50() {
 		let email = String(data: Data(#"\042test@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errUnclosedquotedstr)
 	}
@@ -419,7 +419,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Michael Rushton (https://squiloople.com/tag/email/) */
 	func testXMLTest51() {
 		let email = String(data: Data(#"\042test\042test@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errAtextAfterQs)
 	}
@@ -427,7 +427,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Michael Rushton (https://squiloople.com/tag/email/) */
 	func testXMLTest52() {
 		let email = String(data: Data(#"test\042text\042@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errExpectingAtext)
 	}
@@ -435,7 +435,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Michael Rushton (https://squiloople.com/tag/email/) */
 	func testXMLTest53() {
 		let email = String(data: Data(#"\042test\042\042test\042@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errExpectingAtext)
 	}
@@ -443,7 +443,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Michael Rushton (https://squiloople.com/tag/email/) */
 	func testXMLTest54() {
 		let email = String(data: Data(#"\042test\042.\042test\042@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .deprec) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .deprecLocalpart)
 	}
@@ -451,7 +451,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Michael Rushton (https://squiloople.com/tag/email/) */
 	func testXMLTest55() {
 		let email = String(data: Data(#"\042test\\ test\042@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5321) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5321Quotedstring)
 	}
@@ -459,7 +459,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Michael Rushton (https://squiloople.com/tag/email/) */
 	func testXMLTest56() {
 		let email = String(data: Data(#"\042test\042.test@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .deprec) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .deprecLocalpart)
 	}
@@ -467,7 +467,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Michael Rushton (https://squiloople.com/tag/email/) */
 	func testXMLTest57() {
 		let email = String(data: Data(#"\042test\000\042@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errExpectingQtext)
 	}
@@ -475,7 +475,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Michael Rushton (https://squiloople.com/tag/email/) */
 	func testXMLTest58() {
 		let email = String(data: Data(#"\042test\\\000\042@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .deprec) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .deprecQp)
 	}
@@ -483,7 +483,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTest59() {
 		let email = String(data: Data(#"\042abcdefghijklmnopqrstuvwxyz abcdefghijklmnopqrstuvwxyz abcdefghj\042@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5322) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5322LocalToolong)
 	}
@@ -491,7 +491,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTest60() {
 		let email = String(data: Data(#"\042abcdefghijklmnopqrstuvwxyz abcdefghijklmnopqrstuvwxyz abcdefg\\h\042@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5322) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5322LocalToolong)
 	}
@@ -499,7 +499,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Michael Rushton (https://squiloople.com/tag/email/) */
 	func testXMLTest61() {
 		let email = String(data: Data(#"test@[255.255.255.255]"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5321) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5321Addressliteral)
 	}
@@ -507,7 +507,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Michael Rushton (https://squiloople.com/tag/email/) */
 	func testXMLTest62() {
 		let email = String(data: Data(#"test@a[255.255.255.255]"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errExpectingAtext)
 	}
@@ -515,7 +515,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Michael Rushton (https://squiloople.com/tag/email/) */
 	func testXMLTest63() {
 		let email = String(data: Data(#"test@[255.255.255]"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5322) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5322Domainliteral)
 	}
@@ -523,7 +523,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Michael Rushton (https://squiloople.com/tag/email/) */
 	func testXMLTest64() {
 		let email = String(data: Data(#"test@[255.255.255.255.255]"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5322) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5322Domainliteral)
 	}
@@ -531,7 +531,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Michael Rushton (https://squiloople.com/tag/email/) */
 	func testXMLTest65() {
 		let email = String(data: Data(#"test@[255.255.255.256]"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5322) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5322Domainliteral)
 	}
@@ -539,7 +539,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Michael Rushton (https://squiloople.com/tag/email/) */
 	func testXMLTest66() {
 		let email = String(data: Data(#"test@[1111:2222:3333:4444:5555:6666:7777:8888]"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5322) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5322Domainliteral)
 	}
@@ -547,7 +547,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Michael Rushton (https://squiloople.com/tag/email/) */
 	func testXMLTest67() {
 		let email = String(data: Data(#"test@[IPv6:1111:2222:3333:4444:5555:6666:7777]"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5322) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5322Ipv6Grpcount)
 	}
@@ -555,7 +555,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Michael Rushton (https://squiloople.com/tag/email/) */
 	func testXMLTest68() {
 		let email = String(data: Data(#"test@[IPv6:1111:2222:3333:4444:5555:6666:7777:8888]"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5321) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5321Addressliteral)
 	}
@@ -563,7 +563,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Michael Rushton (https://squiloople.com/tag/email/) */
 	func testXMLTest69() {
 		let email = String(data: Data(#"test@[IPv6:1111:2222:3333:4444:5555:6666:7777:8888:9999]"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5322) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5322Ipv6Grpcount)
 	}
@@ -571,7 +571,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Michael Rushton (https://squiloople.com/tag/email/) */
 	func testXMLTest70() {
 		let email = String(data: Data(#"test@[IPv6:1111:2222:3333:4444:5555:6666:7777:888G]"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5322) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5322Ipv6Badchar)
 	}
@@ -579,7 +579,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Michael Rushton (https://squiloople.com/tag/email/) */
 	func testXMLTest71() {
 		let email = String(data: Data(#"test@[IPv6:1111:2222:3333:4444:5555:6666::8888]"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .deprec) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5321Ipv6Deprecated)
 	}
@@ -587,7 +587,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Michael Rushton (https://squiloople.com/tag/email/) */
 	func testXMLTest72() {
 		let email = String(data: Data(#"test@[IPv6:1111:2222:3333:4444:5555::8888]"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5321) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5321Addressliteral)
 	}
@@ -595,7 +595,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Michael Rushton (https://squiloople.com/tag/email/) */
 	func testXMLTest73() {
 		let email = String(data: Data(#"test@[IPv6:1111:2222:3333:4444:5555:6666::7777:8888]"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5322) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5322Ipv6Maxgrps)
 	}
@@ -603,7 +603,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Michael Rushton (https://squiloople.com/tag/email/) */
 	func testXMLTest74() {
 		let email = String(data: Data(#"test@[IPv6::3333:4444:5555:6666:7777:8888]"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5322) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5322Ipv6Colonstrt)
 	}
@@ -611,7 +611,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Michael Rushton (https://squiloople.com/tag/email/) */
 	func testXMLTest75() {
 		let email = String(data: Data(#"test@[IPv6:::3333:4444:5555:6666:7777:8888]"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5321) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5321Addressliteral)
 	}
@@ -619,7 +619,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Michael Rushton (https://squiloople.com/tag/email/) */
 	func testXMLTest76() {
 		let email = String(data: Data(#"test@[IPv6:1111::4444:5555::8888]"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5322) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5322Ipv62X2Xcolon)
 	}
@@ -627,7 +627,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Michael Rushton (https://squiloople.com/tag/email/) */
 	func testXMLTest77() {
 		let email = String(data: Data(#"test@[IPv6:::]"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5321) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5321Addressliteral)
 	}
@@ -635,7 +635,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Michael Rushton (https://squiloople.com/tag/email/) */
 	func testXMLTest78() {
 		let email = String(data: Data(#"test@[IPv6:1111:2222:3333:4444:5555:255.255.255.255]"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5322) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5322Ipv6Grpcount)
 	}
@@ -643,7 +643,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Michael Rushton (https://squiloople.com/tag/email/) */
 	func testXMLTest79() {
 		let email = String(data: Data(#"test@[IPv6:1111:2222:3333:4444:5555:6666:255.255.255.255]"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5321) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5321Addressliteral)
 	}
@@ -651,7 +651,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Michael Rushton (https://squiloople.com/tag/email/) */
 	func testXMLTest80() {
 		let email = String(data: Data(#"test@[IPv6:1111:2222:3333:4444:5555:6666:7777:255.255.255.255]"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5322) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5322Ipv6Grpcount)
 	}
@@ -659,7 +659,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Michael Rushton (https://squiloople.com/tag/email/) */
 	func testXMLTest81() {
 		let email = String(data: Data(#"test@[IPv6:1111:2222:3333:4444::255.255.255.255]"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5321) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5321Addressliteral)
 	}
@@ -667,7 +667,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Michael Rushton (https://squiloople.com/tag/email/) */
 	func testXMLTest82() {
 		let email = String(data: Data(#"test@[IPv6:1111:2222:3333:4444:5555:6666::255.255.255.255]"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5322) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5322Ipv6Maxgrps)
 	}
@@ -675,7 +675,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Michael Rushton (https://squiloople.com/tag/email/) */
 	func testXMLTest83() {
 		let email = String(data: Data(#"test@[IPv6:1111:2222:3333:4444:::255.255.255.255]"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5322) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5322Ipv62X2Xcolon)
 	}
@@ -683,7 +683,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Michael Rushton (https://squiloople.com/tag/email/) */
 	func testXMLTest84() {
 		let email = String(data: Data(#"test@[IPv6::255.255.255.255]"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5322) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5322Ipv6Colonstrt)
 	}
@@ -691,7 +691,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Michael Rushton (https://squiloople.com/tag/email/) */
 	func testXMLTest85() {
 		let email = String(data: Data(#" test @iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .deprec) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .deprecCfwsNearAt)
 	}
@@ -699,7 +699,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Michael Rushton (https://squiloople.com/tag/email/) */
 	func testXMLTest86() {
 		let email = String(data: Data(#"test@ iana .com"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .deprec) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .deprecCfwsNearAt)
 	}
@@ -707,7 +707,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Michael Rushton (https://squiloople.com/tag/email/) */
 	func testXMLTest87() {
 		let email = String(data: Data(#"test . test@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .deprec) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .deprecFws)
 	}
@@ -715,7 +715,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Michael Rushton (https://squiloople.com/tag/email/) */
 	func testXMLTest88() {
 		let email = String(data: Data(#"\015\012 test@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .cfws) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .cfwsFws)
 	}
@@ -723,7 +723,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Michael Rushton (https://squiloople.com/tag/email/) */
 	func testXMLTest89() {
 		let email = String(data: Data(#"\015\012 \015\012 test@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .deprec) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .deprecFws)
 	}
@@ -731,7 +731,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Michael Rushton (https://squiloople.com/tag/email/) */
 	func testXMLTest90() {
 		let email = String(data: Data(#"(comment)test@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .cfws) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .cfwsComment)
 	}
@@ -739,7 +739,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Michael Rushton (https://squiloople.com/tag/email/) */
 	func testXMLTest91() {
 		let email = String(data: Data(#"((comment)test@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errUnclosedcomment)
 	}
@@ -747,7 +747,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Michael Rushton (https://squiloople.com/tag/email/) */
 	func testXMLTest92() {
 		let email = String(data: Data(#"(comment(comment))test@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .cfws) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .cfwsComment)
 	}
@@ -755,7 +755,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Michael Rushton (https://squiloople.com/tag/email/) */
 	func testXMLTest93() {
 		let email = String(data: Data(#"test@(comment)iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .deprec) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .deprecCfwsNearAt)
 	}
@@ -763,7 +763,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Michael Rushton (https://squiloople.com/tag/email/) */
 	func testXMLTest94() {
 		let email = String(data: Data(#"test(comment)test@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errAtextAfterCfws)
 	}
@@ -771,7 +771,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Michael Rushton (https://squiloople.com/tag/email/) */
 	func testXMLTest95() {
 		let email = String(data: Data(#"test@(comment)[255.255.255.255]"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .deprec) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .deprecCfwsNearAt)
 	}
@@ -779,7 +779,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Michael Rushton (https://squiloople.com/tag/email/) */
 	func testXMLTest96() {
 		let email = String(data: Data(#"(comment)abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghiklm@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .cfws) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .cfwsComment)
 	}
@@ -787,7 +787,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Michael Rushton (https://squiloople.com/tag/email/) */
 	func testXMLTest97() {
 		let email = String(data: Data(#"test@(comment)abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghikl.com"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .deprec) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .deprecCfwsNearAt)
 	}
@@ -795,7 +795,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Michael Rushton (https://squiloople.com/tag/email/) */
 	func testXMLTest98() {
 		let email = String(data: Data(#"(comment)test@abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghik.abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghik.abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijk.abcdefghijklmnopqrstuvwxyzabcdefghijk.abcdefghijklmnopqrstu"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .cfws) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .cfwsComment)
 	}
@@ -803,7 +803,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Michael Rushton (https://squiloople.com/tag/email/) */
 	func testXMLTest99() {
 		let email = String(data: Data(#"test@iana.org\012"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errExpectingAtext)
 	}
@@ -811,7 +811,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Michael Rushton (https://squiloople.com/tag/email/) */
 	func testXMLTest100() {
 		let email = String(data: Data(#"test@xn--hxajbheg2az3al.xn--jxalpdlp"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .validCategory) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .valid)
 	}
@@ -819,7 +819,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTest101() {
 		let email = String(data: Data(#"xn--test@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .validCategory) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .valid)
 	}
@@ -827,7 +827,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTest102() {
 		let email = String(data: Data(#"test@iana.org-"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errDomainhyphenend)
 	}
@@ -835,7 +835,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTest103() {
 		let email = String(data: Data(#"\042test@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errUnclosedquotedstr)
 	}
@@ -843,7 +843,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTest104() {
 		let email = String(data: Data(#"(test@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errUnclosedcomment)
 	}
@@ -851,7 +851,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTest105() {
 		let email = String(data: Data(#"test@(iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errUnclosedcomment)
 	}
@@ -859,7 +859,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTest106() {
 		let email = String(data: Data(#"test@[1.2.3.4"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errUncloseddomlit)
 	}
@@ -867,7 +867,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTest107() {
 		let email = String(data: Data(#"\042test\\\042@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errUnclosedquotedstr)
 	}
@@ -875,7 +875,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTest108() {
 		let email = String(data: Data(#"(comment\\)test@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errUnclosedcomment)
 	}
@@ -883,7 +883,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTest109() {
 		let email = String(data: Data(#"test@iana.org(comment\\)"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errUnclosedcomment)
 	}
@@ -891,7 +891,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTest110() {
 		let email = String(data: Data(#"test@iana.org(comment\\"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errBackslashend)
 	}
@@ -899,7 +899,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTest112() {
 		let email = String(data: Data(#"test@[RFC-5322-domain-literal]"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5322) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5322Domainliteral)
 	}
@@ -907,7 +907,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTest113() {
 		let email = String(data: Data(#"test@[RFC-5322]-domain-literal]"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errAtextAfterDomlit)
 	}
@@ -915,7 +915,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTest114() {
 		let email = String(data: Data(#"test@[RFC-5322-[domain-literal]"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errExpectingDtext)
 	}
@@ -923,7 +923,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTest115() {
 		let email = String(data: Data(#"test@[RFC-5322-\\\007-domain-literal]"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5322) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5322DomlitObsdtext)
 	}
@@ -931,7 +931,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTest116() {
 		let email = String(data: Data(#"test@[RFC-5322-\\\011-domain-literal]"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5322) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5322DomlitObsdtext)
 	}
@@ -939,7 +939,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTest117() {
 		let email = String(data: Data(#"test@[RFC-5322-\\]-domain-literal]"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5322) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5322DomlitObsdtext)
 	}
@@ -947,7 +947,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTest118() {
 		let email = String(data: Data(#"test@[RFC-5322-domain-literal\\]"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errUncloseddomlit)
 	}
@@ -955,7 +955,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTest119() {
 		let email = String(data: Data(#"test@[RFC-5322-domain-literal\\"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errBackslashend)
 	}
@@ -963,7 +963,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTest120() {
 		let email = String(data: Data(#"test@[RFC 5322 domain literal]"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5322) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5322Domainliteral)
 	}
@@ -971,7 +971,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTest121() {
 		let email = String(data: Data(#"test@[RFC-5322-domain-literal] (comment)"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5322) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5322Domainliteral)
 	}
@@ -979,7 +979,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTest122() {
 		let email = String(data: Data(#"\177@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errExpectingAtext)
 	}
@@ -987,7 +987,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTest123() {
 		let email = String(data: Data(#"test@\177.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errExpectingAtext)
 	}
@@ -995,7 +995,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTest124() {
 		let email = String(data: Data(#"\042\177\042@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .deprec) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .deprecQtext)
 	}
@@ -1003,7 +1003,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTest125() {
 		let email = String(data: Data(#"\042\\\177\042@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .deprec) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .deprecQp)
 	}
@@ -1011,7 +1011,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTest126() {
 		let email = String(data: Data(#"(\177)test@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .deprec) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .deprecCtext)
 	}
@@ -1019,7 +1019,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTest127() {
 		let email = String(data: Data(#"test@iana.org\015"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errCrNoLf)
 	}
@@ -1027,7 +1027,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTest128() {
 		let email = String(data: Data(#"\015test@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errCrNoLf)
 	}
@@ -1035,7 +1035,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTest129() {
 		let email = String(data: Data(#"\042\015test\042@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errCrNoLf)
 	}
@@ -1043,7 +1043,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTest130() {
 		let email = String(data: Data(#"(\015)test@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errCrNoLf)
 	}
@@ -1051,7 +1051,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTest131() {
 		let email = String(data: Data(#"test@iana.org(\015)"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errCrNoLf)
 	}
@@ -1059,7 +1059,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Michael Rushton (https://squiloople.com/tag/email/) */
 	func testXMLTest132() {
 		let email = String(data: Data(#"\012test@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errExpectingAtext)
 	}
@@ -1067,7 +1067,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTest133() {
 		let email = String(data: Data(#"\042\012\042@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errExpectingQtext)
 	}
@@ -1075,7 +1075,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTest134() {
 		let email = String(data: Data(#"\042\\\012\042@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .deprec) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .deprecQp)
 	}
@@ -1083,7 +1083,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTest135() {
 		let email = String(data: Data(#"(\012)test@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errExpectingCtext)
 	}
@@ -1091,7 +1091,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTest136() {
 		let email = String(data: Data(#"\007@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errExpectingAtext)
 	}
@@ -1099,7 +1099,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTest137() {
 		let email = String(data: Data(#"test@\007.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errExpectingAtext)
 	}
@@ -1107,7 +1107,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTest138() {
 		let email = String(data: Data(#"\042\007\042@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .deprec) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .deprecQtext)
 	}
@@ -1115,7 +1115,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTest139() {
 		let email = String(data: Data(#"\042\\\007\042@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .deprec) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .deprecQp)
 	}
@@ -1123,7 +1123,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTest140() {
 		let email = String(data: Data(#"(\007)test@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .deprec) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .deprecCtext)
 	}
@@ -1131,7 +1131,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTest141() {
 		let email = String(data: Data(#"\015\012test@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errFwsCrlfEnd)
 	}
@@ -1139,7 +1139,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTest142() {
 		let email = String(data: Data(#"\015\012 \015\012test@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errFwsCrlfEnd)
 	}
@@ -1147,7 +1147,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTest143() {
 		let email = String(data: Data(#" \015\012test@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errFwsCrlfEnd)
 	}
@@ -1155,7 +1155,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTest144() {
 		let email = String(data: Data(#" \015\012 test@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .cfws) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .cfwsFws)
 	}
@@ -1163,7 +1163,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTest145() {
 		let email = String(data: Data(#" \015\012 \015\012test@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errFwsCrlfEnd)
 	}
@@ -1171,7 +1171,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTest146() {
 		let email = String(data: Data(#" \015\012\015\012test@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errFwsCrlfX2)
 	}
@@ -1179,7 +1179,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTest147() {
 		let email = String(data: Data(#" \015\012\015\012 test@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errFwsCrlfX2)
 	}
@@ -1187,7 +1187,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTest148() {
 		let email = String(data: Data(#"test@iana.org\015\012 "#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .cfws) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .cfwsFws)
 	}
@@ -1195,7 +1195,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTest149() {
 		let email = String(data: Data(#"test@iana.org\015\012 \015\012 "#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .deprec) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .deprecFws)
 	}
@@ -1203,7 +1203,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTest150() {
 		let email = String(data: Data(#"test@iana.org\015\012"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errFwsCrlfEnd)
 	}
@@ -1211,7 +1211,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTest151() {
 		let email = String(data: Data(#"test@iana.org\015\012 \015\012"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errFwsCrlfEnd)
 	}
@@ -1219,7 +1219,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTest152() {
 		let email = String(data: Data(#"test@iana.org \015\012"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errFwsCrlfEnd)
 	}
@@ -1227,7 +1227,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTest153() {
 		let email = String(data: Data(#"test@iana.org \015\012 "#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .cfws) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .cfwsFws)
 	}
@@ -1235,7 +1235,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTest154() {
 		let email = String(data: Data(#"test@iana.org \015\012 \015\012"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errFwsCrlfEnd)
 	}
@@ -1243,7 +1243,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTest155() {
 		let email = String(data: Data(#"test@iana.org \015\012\015\012"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errFwsCrlfX2)
 	}
@@ -1251,7 +1251,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTest156() {
 		let email = String(data: Data(#"test@iana.org \015\012\015\012 "#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errFwsCrlfX2)
 	}
@@ -1259,7 +1259,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTest157() {
 		let email = String(data: Data(#" test@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .cfws) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .cfwsFws)
 	}
@@ -1267,7 +1267,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTest158() {
 		let email = String(data: Data(#"test@iana.org "#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .cfws) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .cfwsFws)
 	}
@@ -1275,7 +1275,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTest159() {
 		let email = String(data: Data(#"test@[IPv6:1::2:]"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5322) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5322Ipv6Colonend)
 	}
@@ -1283,7 +1283,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTest160() {
 		let email = String(data: Data(#"\042test\\\251\042@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errExpectingQpair)
 	}
@@ -1291,7 +1291,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTest161() {
 		let email = String(data: Data(#"test@iana/icann.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5322) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5322Domain)
 	}
@@ -1299,7 +1299,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTest165() {
 		let email = String(data: Data(#"test.(comment)test@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .deprec) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .deprecComment)
 	}
@@ -1307,7 +1307,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTest166() {
 		let email = String(data: Data(#"test@org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5321) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5321Tld)
 	}
@@ -1315,7 +1315,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTest167() {
 		let email = String(data: Data(#"test@test.com"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .validCategory) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .valid)
 	}
@@ -1323,7 +1323,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTest168() {
 		let email = String(data: Data(#"test@nic.no"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .validCategory) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .valid)
 	}
@@ -1331,7 +1331,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTestOriginal1() {
 		let email = String(data: Data(#"first.last@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .validCategory) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .valid)
 	}
@@ -1339,7 +1339,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTestOriginal2() {
 		let email = String(data: Data(#"1234567890123456789012345678901234567890123456789012345678901234@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .validCategory) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .valid)
 	}
@@ -1347,7 +1347,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Rob <bob@bob.com> (https://isemail.info) */
 	func testXMLTestOriginal3() {
 		let email = String(data: Data(#"first.last@sub.do,com"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errExpectingAtext)
 	}
@@ -1355,7 +1355,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTestOriginal4() {
 		let email = String(data: Data(#"\042first\\\042last\042@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5321) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5321Quotedstring)
 	}
@@ -1363,7 +1363,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTestOriginal5() {
 		let email = String(data: Data(#"first\\@last@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errExpectingAtext)
 	}
@@ -1371,7 +1371,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTestOriginal6() {
 		let email = String(data: Data(#"\042first@last\042@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5321) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5321Quotedstring)
 	}
@@ -1379,7 +1379,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTestOriginal7() {
 		let email = String(data: Data(#"\042first\\\\last\042@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5321) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5321Quotedstring)
 	}
@@ -1387,7 +1387,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTestOriginal8() {
 		let email = String(data: Data(#"x@x23456789.x23456789.x23456789.x23456789.x23456789.x23456789.x23456789.x23456789.x23456789.x23456789.x23456789.x23456789.x23456789.x23456789.x23456789.x23456789.x23456789.x23456789.x23456789.x23456789.x23456789.x23456789.x23456789.x23456789.x23456789.x2"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .validCategory) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .valid)
 	}
@@ -1395,7 +1395,7 @@ class DominicSayersTests : XCTestCase {
 	/* From RFC 3696 erratum 1690 (https://www.rfc-editor.org/errata_search.php?rfc=3696&eid=1690) */
 	func testXMLTestOriginal9() {
 		let email = String(data: Data(#"1234567890123456789012345678901234567890123456789012345678901@12345678901234567890123456789012345678901234567890123456789.12345678901234567890123456789012345678901234567890123456789.123456789012345678901234567890123456789012345678901234567890123.iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .validCategory) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .valid)
 	}
@@ -1403,7 +1403,7 @@ class DominicSayersTests : XCTestCase {
 	/* From RFC 3696 erratum 1690 (https://www.rfc-editor.org/errata_search.php?rfc=3696&eid=1690) */
 	func testXMLTestOriginal10() {
 		let email = String(data: Data(#"first.last@[12.34.56.78]"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5321) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5321Addressliteral)
 	}
@@ -1411,7 +1411,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTestOriginal11() {
 		let email = String(data: Data(#"first.last@[IPv6:::12.34.56.78]"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5321) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5321Addressliteral)
 	}
@@ -1419,7 +1419,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTestOriginal12() {
 		let email = String(data: Data(#"first.last@[IPv6:1111:2222:3333::4444:12.34.56.78]"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5321) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5321Addressliteral)
 	}
@@ -1427,7 +1427,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTestOriginal13() {
 		let email = String(data: Data(#"first.last@[IPv6:1111:2222:3333:4444:5555:6666:12.34.56.78]"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5321) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5321Addressliteral)
 	}
@@ -1435,7 +1435,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTestOriginal14() {
 		let email = String(data: Data(#"first.last@[IPv6:::1111:2222:3333:4444:5555:6666]"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5321) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5321Addressliteral)
 	}
@@ -1443,7 +1443,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTestOriginal15() {
 		let email = String(data: Data(#"first.last@[IPv6:1111:2222:3333::4444:5555:6666]"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5321) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5321Addressliteral)
 	}
@@ -1451,7 +1451,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTestOriginal16() {
 		let email = String(data: Data(#"first.last@[IPv6:1111:2222:3333:4444:5555:6666::]"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5321) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5321Addressliteral)
 	}
@@ -1459,7 +1459,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTestOriginal17() {
 		let email = String(data: Data(#"first.last@[IPv6:1111:2222:3333:4444:5555:6666:7777:8888]"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5321) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5321Addressliteral)
 	}
@@ -1467,7 +1467,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTestOriginal18() {
 		let email = String(data: Data(#"first.last@x23456789012345678901234567890123456789012345678901234567890123.iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .validCategory) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .valid)
 	}
@@ -1475,7 +1475,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTestOriginal19() {
 		let email = String(data: Data(#"first.last@3com.com"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .validCategory) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .valid)
 	}
@@ -1483,7 +1483,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTestOriginal20() {
 		let email = String(data: Data(#"first.last@123.iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .validCategory) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .valid)
 	}
@@ -1491,7 +1491,7 @@ class DominicSayersTests : XCTestCase {
 	/* From RFC 3696 erratum 1690 (https://www.rfc-editor.org/errata_search.php?rfc=3696&eid=1690) */
 	func testXMLTestOriginal21() {
 		let email = String(data: Data(#"123456789012345678901234567890123456789012345678901234567890@12345678901234567890123456789012345678901234567890123456789.12345678901234567890123456789012345678901234567890123456789.12345678901234567890123456789012345678901234567890123456789.12345.iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5322) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5322Toolong)
 	}
@@ -1499,7 +1499,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTestOriginal22() {
 		let email = String(data: Data(#"first.last"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errNodomain)
 	}
@@ -1507,7 +1507,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTestOriginal23() {
 		let email = String(data: Data(#"12345678901234567890123456789012345678901234567890123456789012345@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5322) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5322LocalToolong)
 	}
@@ -1515,7 +1515,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTestOriginal24() {
 		let email = String(data: Data(#".first.last@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errDotStart)
 	}
@@ -1523,7 +1523,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTestOriginal25() {
 		let email = String(data: Data(#"first.last.@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errDotEnd)
 	}
@@ -1531,7 +1531,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTestOriginal26() {
 		let email = String(data: Data(#"first..last@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errConsecutivedots)
 	}
@@ -1539,7 +1539,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTestOriginal27() {
 		let email = String(data: Data(#"\042first\042last\042@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errAtextAfterQs)
 	}
@@ -1547,7 +1547,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTestOriginal28() {
 		let email = String(data: Data(#"\042first\\last\042@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5321) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5321Quotedstring)
 	}
@@ -1555,7 +1555,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTestOriginal29() {
 		let email = String(data: Data(#"\042\042\042@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errExpectingAtext)
 	}
@@ -1563,7 +1563,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTestOriginal30() {
 		let email = String(data: Data(#"\042\\\042@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errUnclosedquotedstr)
 	}
@@ -1571,7 +1571,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTestOriginal31() {
 		let email = String(data: Data(#"\042\042@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5321) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5321Quotedstring)
 	}
@@ -1579,7 +1579,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTestOriginal32() {
 		let email = String(data: Data(#"first\\\\@last@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errExpectingAtext)
 	}
@@ -1587,7 +1587,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTestOriginal33() {
 		let email = String(data: Data(#"first.last@"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errNodomain)
 	}
@@ -1595,7 +1595,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTestOriginal34() {
 		let email = String(data: Data(#"x@x23456789.x23456789.x23456789.x23456789.x23456789.x23456789.x23456789.x23456789.x23456789.x23456789.x23456789.x23456789.x23456789.x23456789.x23456789.x23456789.x23456789.x23456789.x23456789.x23456789.x23456789.x23456789.x23456789.x23456789.x23456789.x23456"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5322) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5322DomainToolong)
 	}
@@ -1603,7 +1603,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTestOriginal35() {
 		let email = String(data: Data(#"first.last@[.12.34.56.78]"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5322) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5322Domainliteral)
 	}
@@ -1611,7 +1611,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTestOriginal36() {
 		let email = String(data: Data(#"first.last@[12.34.56.789]"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5322) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5322Domainliteral)
 	}
@@ -1619,7 +1619,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTestOriginal37() {
 		let email = String(data: Data(#"first.last@[::12.34.56.78]"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5322) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5322Domainliteral)
 	}
@@ -1627,7 +1627,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTestOriginal38() {
 		let email = String(data: Data(#"first.last@[IPv5:::12.34.56.78]"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5322) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5322Domainliteral)
 	}
@@ -1635,7 +1635,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTestOriginal39() {
 		let email = String(data: Data(#"first.last@[IPv6:1111:2222:3333::4444:5555:12.34.56.78]"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5321) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5321Ipv6Deprecated)
 	}
@@ -1643,7 +1643,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTestOriginal40() {
 		let email = String(data: Data(#"first.last@[IPv6:1111:2222:3333:4444:5555:12.34.56.78]"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5322) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5322Ipv6Grpcount)
 	}
@@ -1651,7 +1651,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTestOriginal41() {
 		let email = String(data: Data(#"first.last@[IPv6:1111:2222:3333:4444:5555:6666:7777:12.34.56.78]"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5322) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5322Ipv6Grpcount)
 	}
@@ -1659,7 +1659,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTestOriginal42() {
 		let email = String(data: Data(#"first.last@[IPv6:1111:2222:3333:4444:5555:6666:7777]"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5322) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5322Ipv6Grpcount)
 	}
@@ -1667,7 +1667,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTestOriginal43() {
 		let email = String(data: Data(#"first.last@[IPv6:1111:2222:3333:4444:5555:6666:7777:8888:9999]"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5322) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5322Ipv6Grpcount)
 	}
@@ -1675,7 +1675,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTestOriginal44() {
 		let email = String(data: Data(#"first.last@[IPv6:1111:2222::3333::4444:5555:6666]"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5322) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5322Ipv62X2Xcolon)
 	}
@@ -1683,7 +1683,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTestOriginal45() {
 		let email = String(data: Data(#"first.last@[IPv6:1111:2222:3333::4444:5555:6666:7777]"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5321) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5321Ipv6Deprecated)
 	}
@@ -1691,7 +1691,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTestOriginal46() {
 		let email = String(data: Data(#"first.last@[IPv6:1111:2222:333x::4444:5555]"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5322) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5322Ipv6Badchar)
 	}
@@ -1699,7 +1699,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTestOriginal47() {
 		let email = String(data: Data(#"first.last@[IPv6:1111:2222:33333::4444:5555]"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5322) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5322Ipv6Badchar)
 	}
@@ -1707,7 +1707,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTestOriginal48() {
 		let email = String(data: Data(#"first.last@example.123"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5321) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5321Tldnumeric)
 	}
@@ -1715,7 +1715,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTestOriginal49() {
 		let email = String(data: Data(#"first.last@com"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5321) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5321Tld)
 	}
@@ -1723,7 +1723,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTestOriginal50() {
 		let email = String(data: Data(#"first.last@-xample.com"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errDomainhyphenstart)
 	}
@@ -1731,7 +1731,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTestOriginal51() {
 		let email = String(data: Data(#"first.last@exampl-.com"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errDomainhyphenend)
 	}
@@ -1739,7 +1739,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTestOriginal52() {
 		let email = String(data: Data(#"first.last@x234567890123456789012345678901234567890123456789012345678901234.iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5322) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5322LabelToolong)
 	}
@@ -1747,7 +1747,7 @@ class DominicSayersTests : XCTestCase {
 	/* From RFC 3696 (February 2004) (https://tools.ietf.org/html/rfc3696#section-3) */
 	func testXMLTestOriginal53() {
 		let email = String(data: Data(#"\042Abc\\@def\042@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5321) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5321Quotedstring)
 	}
@@ -1755,7 +1755,7 @@ class DominicSayersTests : XCTestCase {
 	/* From RFC 3696 (as amended by erratum 2005-07-09) (https://www.rfc-editor.org/errata_search.php?rfc=3696&eid=246) */
 	func testXMLTestOriginal54() {
 		let email = String(data: Data(#"\042Fred\\ Bloggs\042@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5321) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5321Quotedstring)
 	}
@@ -1763,7 +1763,7 @@ class DominicSayersTests : XCTestCase {
 	/* From RFC 3696 (as amended by erratum 2005-07-09) (https://www.rfc-editor.org/errata_search.php?rfc=3696&eid=246) */
 	func testXMLTestOriginal55() {
 		let email = String(data: Data(#"\042Joe.\\\\Blow\042@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5321) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5321Quotedstring)
 	}
@@ -1771,7 +1771,7 @@ class DominicSayersTests : XCTestCase {
 	/* From RFC 3696 (as amended by erratum 2005-07-09) (https://www.rfc-editor.org/errata_search.php?rfc=3696&eid=246) */
 	func testXMLTestOriginal56() {
 		let email = String(data: Data(#"\042Abc@def\042@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5321) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5321Quotedstring)
 	}
@@ -1779,7 +1779,7 @@ class DominicSayersTests : XCTestCase {
 	/* From RFC 3696 (February 2004) (https://tools.ietf.org/html/rfc3696#section-3) */
 	func testXMLTestOriginal57() {
 		let email = String(data: Data(#"\042Fred Bloggs\042@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5321) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5321Quotedstring)
 	}
@@ -1787,7 +1787,7 @@ class DominicSayersTests : XCTestCase {
 	/* From RFC 3696 (February 2004) (https://tools.ietf.org/html/rfc3696#section-3) */
 	func testXMLTestOriginal58() {
 		let email = String(data: Data(#"user+mailbox@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .validCategory) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .valid)
 	}
@@ -1795,7 +1795,7 @@ class DominicSayersTests : XCTestCase {
 	/* From RFC 3696 (February 2004) (https://tools.ietf.org/html/rfc3696#section-3) */
 	func testXMLTestOriginal59() {
 		let email = String(data: Data(#"customer/department=shipping@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .validCategory) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .valid)
 	}
@@ -1803,7 +1803,7 @@ class DominicSayersTests : XCTestCase {
 	/* From RFC 3696 (February 2004) (https://tools.ietf.org/html/rfc3696#section-3) */
 	func testXMLTestOriginal60() {
 		let email = String(data: Data(#"$A12345@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .validCategory) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .valid)
 	}
@@ -1811,7 +1811,7 @@ class DominicSayersTests : XCTestCase {
 	/* From RFC 3696 (February 2004) (https://tools.ietf.org/html/rfc3696#section-3) */
 	func testXMLTestOriginal61() {
 		let email = String(data: Data(#"!def!xyz%abc@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .validCategory) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .valid)
 	}
@@ -1819,7 +1819,7 @@ class DominicSayersTests : XCTestCase {
 	/* From RFC 3696 (February 2004) (https://tools.ietf.org/html/rfc3696#section-3) */
 	func testXMLTestOriginal62() {
 		let email = String(data: Data(#"_somename@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .validCategory) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .valid)
 	}
@@ -1827,7 +1827,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Doug Lovell (LinuxJournal, June 2007) (https://www.linuxjournal.com/article/9585) */
 	func testXMLTestOriginal63() {
 		let email = String(data: Data(#"dclo@us.ibm.com"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .validCategory) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .valid)
 	}
@@ -1835,7 +1835,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Doug Lovell (LinuxJournal, June 2007) (https://www.linuxjournal.com/article/9585) */
 	func testXMLTestOriginal64() {
 		let email = String(data: Data(#"abc\\@def@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errExpectingAtext)
 	}
@@ -1843,7 +1843,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Doug Lovell (LinuxJournal, June 2007) (https://www.linuxjournal.com/article/9585) */
 	func testXMLTestOriginal65() {
 		let email = String(data: Data(#"abc\\\\@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errExpectingAtext)
 	}
@@ -1851,7 +1851,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Doug Lovell (LinuxJournal, June 2007) (https://www.linuxjournal.com/article/9585) */
 	func testXMLTestOriginal66() {
 		let email = String(data: Data(#"peter.piper@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .validCategory) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .valid)
 	}
@@ -1859,7 +1859,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Doug Lovell (LinuxJournal, June 2007) (https://www.linuxjournal.com/article/9585) */
 	func testXMLTestOriginal67() {
 		let email = String(data: Data(#"Doug\\ \\\042Ace\\\042\\ Lovell@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errExpectingAtext)
 	}
@@ -1867,7 +1867,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Doug Lovell (LinuxJournal, June 2007) (https://www.linuxjournal.com/article/9585) */
 	func testXMLTestOriginal68() {
 		let email = String(data: Data(#"\042Doug \\\042Ace\\\042 L.\042@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5321) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5321Quotedstring)
 	}
@@ -1875,7 +1875,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Doug Lovell (LinuxJournal, June 2007) (https://www.linuxjournal.com/article/9585) */
 	func testXMLTestOriginal69() {
 		let email = String(data: Data(#"abc@def@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errExpectingAtext)
 	}
@@ -1883,7 +1883,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Doug Lovell (LinuxJournal, June 2007) (https://www.linuxjournal.com/article/9585) */
 	func testXMLTestOriginal70() {
 		let email = String(data: Data(#"abc\\\\@def@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errExpectingAtext)
 	}
@@ -1891,7 +1891,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Doug Lovell (LinuxJournal, June 2007) (https://www.linuxjournal.com/article/9585) */
 	func testXMLTestOriginal71() {
 		let email = String(data: Data(#"abc\\@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errExpectingAtext)
 	}
@@ -1899,7 +1899,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Doug Lovell (LinuxJournal, June 2007) (https://www.linuxjournal.com/article/9585) */
 	func testXMLTestOriginal72() {
 		let email = String(data: Data(#"@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errNolocalpart)
 	}
@@ -1907,7 +1907,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Doug Lovell (LinuxJournal, June 2007) (https://www.linuxjournal.com/article/9585) */
 	func testXMLTestOriginal73() {
 		let email = String(data: Data(#"doug@"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errNodomain)
 	}
@@ -1915,7 +1915,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Doug Lovell (LinuxJournal, June 2007) (https://www.linuxjournal.com/article/9585) */
 	func testXMLTestOriginal74() {
 		let email = String(data: Data(#"\042qu@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errUnclosedquotedstr)
 	}
@@ -1923,7 +1923,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Doug Lovell (LinuxJournal, June 2007) (https://www.linuxjournal.com/article/9585) */
 	func testXMLTestOriginal75() {
 		let email = String(data: Data(#"ote\042@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errExpectingAtext)
 	}
@@ -1931,7 +1931,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Doug Lovell (LinuxJournal, June 2007) (https://www.linuxjournal.com/article/9585) */
 	func testXMLTestOriginal76() {
 		let email = String(data: Data(#".dot@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errDotStart)
 	}
@@ -1939,7 +1939,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Doug Lovell (LinuxJournal, June 2007) (https://www.linuxjournal.com/article/9585) */
 	func testXMLTestOriginal77() {
 		let email = String(data: Data(#"dot.@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errDotEnd)
 	}
@@ -1947,7 +1947,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Doug Lovell (LinuxJournal, June 2007) (https://www.linuxjournal.com/article/9585) */
 	func testXMLTestOriginal78() {
 		let email = String(data: Data(#"two..dot@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errConsecutivedots)
 	}
@@ -1955,7 +1955,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Doug Lovell (LinuxJournal, June 2007) (https://www.linuxjournal.com/article/9585) */
 	func testXMLTestOriginal79() {
 		let email = String(data: Data(#"\042Doug \042Ace\042 L.\042@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errAtextAfterQs)
 	}
@@ -1963,7 +1963,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Doug Lovell (LinuxJournal, June 2007) (https://www.linuxjournal.com/article/9585) */
 	func testXMLTestOriginal80() {
 		let email = String(data: Data(#"Doug\\ \\\042Ace\\\042\\ L\\.@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errExpectingAtext)
 	}
@@ -1971,7 +1971,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Doug Lovell (LinuxJournal, June 2007) (https://www.linuxjournal.com/article/9585) */
 	func testXMLTestOriginal81() {
 		let email = String(data: Data(#"hello world@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errAtextAfterCfws)
 	}
@@ -1979,7 +1979,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Doug Lovell (LinuxJournal, June 2007) (https://www.linuxjournal.com/article/9585) */
 	func testXMLTestOriginal82() {
 		let email = String(data: Data(#"gatsby@f.sc.ot.t.f.i.tzg.era.l.d."#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errDotEnd)
 	}
@@ -1987,7 +1987,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dave Child (https://code.google.com/p/php-email-address-validation/) */
 	func testXMLTestOriginal83() {
 		let email = String(data: Data(#"test@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .validCategory) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .valid)
 	}
@@ -1995,7 +1995,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dave Child (https://code.google.com/p/php-email-address-validation/) */
 	func testXMLTestOriginal84() {
 		let email = String(data: Data(#"TEST@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .validCategory) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .valid)
 	}
@@ -2003,7 +2003,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dave Child (https://code.google.com/p/php-email-address-validation/) */
 	func testXMLTestOriginal85() {
 		let email = String(data: Data(#"1234567890@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .validCategory) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .valid)
 	}
@@ -2011,7 +2011,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dave Child (https://code.google.com/p/php-email-address-validation/) */
 	func testXMLTestOriginal86() {
 		let email = String(data: Data(#"test+test@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .validCategory) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .valid)
 	}
@@ -2019,7 +2019,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dave Child (https://code.google.com/p/php-email-address-validation/) */
 	func testXMLTestOriginal87() {
 		let email = String(data: Data(#"test-test@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .validCategory) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .valid)
 	}
@@ -2027,7 +2027,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dave Child (https://code.google.com/p/php-email-address-validation/) */
 	func testXMLTestOriginal88() {
 		let email = String(data: Data(#"t*est@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .validCategory) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .valid)
 	}
@@ -2035,7 +2035,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dave Child (https://code.google.com/p/php-email-address-validation/) */
 	func testXMLTestOriginal89() {
 		let email = String(data: Data(#"+1~1+@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .validCategory) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .valid)
 	}
@@ -2043,7 +2043,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dave Child (https://code.google.com/p/php-email-address-validation/) */
 	func testXMLTestOriginal90() {
 		let email = String(data: Data(#"{_test_}@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .validCategory) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .valid)
 	}
@@ -2051,7 +2051,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dave Child (https://code.google.com/p/php-email-address-validation/) */
 	func testXMLTestOriginal91() {
 		let email = String(data: Data(#"\042[[ test ]]\042@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5321) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5321Quotedstring)
 	}
@@ -2059,7 +2059,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dave Child (https://code.google.com/p/php-email-address-validation/) */
 	func testXMLTestOriginal92() {
 		let email = String(data: Data(#"test.test@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .validCategory) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .valid)
 	}
@@ -2067,7 +2067,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dave Child (https://code.google.com/p/php-email-address-validation/) */
 	func testXMLTestOriginal93() {
 		let email = String(data: Data(#"\042test.test\042@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5321) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5321Quotedstring)
 	}
@@ -2075,7 +2075,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dave Child (https://code.google.com/p/php-email-address-validation/) */
 	func testXMLTestOriginal94() {
 		let email = String(data: Data(#"test.\042test\042@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .deprec) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .deprecLocalpart)
 	}
@@ -2083,7 +2083,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dave Child (https://code.google.com/p/php-email-address-validation/) */
 	func testXMLTestOriginal95() {
 		let email = String(data: Data(#"\042test@test\042@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5321) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5321Quotedstring)
 	}
@@ -2091,7 +2091,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dave Child (https://code.google.com/p/php-email-address-validation/) */
 	func testXMLTestOriginal96() {
 		let email = String(data: Data(#"test@123.123.123.x123"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .validCategory) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .valid)
 	}
@@ -2099,7 +2099,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dave Child (https://code.google.com/p/php-email-address-validation/) */
 	func testXMLTestOriginal97() {
 		let email = String(data: Data(#"test@123.123.123.123"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5321) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5321Tldnumeric)
 	}
@@ -2107,7 +2107,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dave Child (https://code.google.com/p/php-email-address-validation/) */
 	func testXMLTestOriginal98() {
 		let email = String(data: Data(#"test@[123.123.123.123]"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5321) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5321Addressliteral)
 	}
@@ -2115,7 +2115,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dave Child (https://code.google.com/p/php-email-address-validation/) */
 	func testXMLTestOriginal99() {
 		let email = String(data: Data(#"test@example.iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .validCategory) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .valid)
 	}
@@ -2123,7 +2123,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dave Child (https://code.google.com/p/php-email-address-validation/) */
 	func testXMLTestOriginal100() {
 		let email = String(data: Data(#"test@example.example.iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .validCategory) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .valid)
 	}
@@ -2131,7 +2131,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dave Child (https://code.google.com/p/php-email-address-validation/) */
 	func testXMLTestOriginal101() {
 		let email = String(data: Data(#"test.iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errNodomain)
 	}
@@ -2139,7 +2139,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dave Child (https://code.google.com/p/php-email-address-validation/) */
 	func testXMLTestOriginal102() {
 		let email = String(data: Data(#"test.@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errDotEnd)
 	}
@@ -2147,7 +2147,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dave Child (https://code.google.com/p/php-email-address-validation/) */
 	func testXMLTestOriginal103() {
 		let email = String(data: Data(#"test..test@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errConsecutivedots)
 	}
@@ -2155,7 +2155,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dave Child (https://code.google.com/p/php-email-address-validation/) */
 	func testXMLTestOriginal104() {
 		let email = String(data: Data(#".test@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errDotStart)
 	}
@@ -2163,7 +2163,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dave Child (https://code.google.com/p/php-email-address-validation/) */
 	func testXMLTestOriginal105() {
 		let email = String(data: Data(#"test@test@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errExpectingAtext)
 	}
@@ -2171,7 +2171,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dave Child (https://code.google.com/p/php-email-address-validation/) */
 	func testXMLTestOriginal106() {
 		let email = String(data: Data(#"test@@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errExpectingAtext)
 	}
@@ -2179,7 +2179,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dave Child (https://code.google.com/p/php-email-address-validation/) */
 	func testXMLTestOriginal107() {
 		let email = String(data: Data(#"-- test --@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errAtextAfterCfws)
 	}
@@ -2187,7 +2187,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dave Child (https://code.google.com/p/php-email-address-validation/) */
 	func testXMLTestOriginal108() {
 		let email = String(data: Data(#"[test]@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errExpectingAtext)
 	}
@@ -2195,7 +2195,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dave Child (https://code.google.com/p/php-email-address-validation/) */
 	func testXMLTestOriginal109() {
 		let email = String(data: Data(#"\042test\\test\042@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5321) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5321Quotedstring)
 	}
@@ -2203,7 +2203,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dave Child (https://code.google.com/p/php-email-address-validation/) */
 	func testXMLTestOriginal110() {
 		let email = String(data: Data(#"\042test\042test\042@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errAtextAfterQs)
 	}
@@ -2211,7 +2211,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dave Child (https://code.google.com/p/php-email-address-validation/) */
 	func testXMLTestOriginal111() {
 		let email = String(data: Data(#"()[]\\;:,><@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errExpectingAtext)
 	}
@@ -2219,7 +2219,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dave Child (https://code.google.com/p/php-email-address-validation/) */
 	func testXMLTestOriginal112() {
 		let email = String(data: Data(#"test@."#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errDotStart)
 	}
@@ -2227,7 +2227,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dave Child (https://code.google.com/p/php-email-address-validation/) */
 	func testXMLTestOriginal113() {
 		let email = String(data: Data(#"test@example."#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errDotEnd)
 	}
@@ -2235,7 +2235,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dave Child (https://code.google.com/p/php-email-address-validation/) */
 	func testXMLTestOriginal114() {
 		let email = String(data: Data(#"test@.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errDotStart)
 	}
@@ -2243,7 +2243,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dave Child (https://code.google.com/p/php-email-address-validation/) */
 	func testXMLTestOriginal115() {
 		let email = String(data: Data(#"test@123456789012345678901234567890123456789012345678901234567890123.123456789012345678901234567890123456789012345678901234567890123.123456789012345678901234567890123456789012345678901234567890123.123456789012345678901234567890123456789012345678901234567890.com"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5322) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5322DomainToolong)
 	}
@@ -2251,7 +2251,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dave Child (https://code.google.com/p/php-email-address-validation/) */
 	func testXMLTestOriginal116() {
 		let email = String(data: Data(#"test@example"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5321) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5321Tld)
 	}
@@ -2259,7 +2259,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dave Child (https://code.google.com/p/php-email-address-validation/) */
 	func testXMLTestOriginal117() {
 		let email = String(data: Data(#"test@[123.123.123.123"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errUncloseddomlit)
 	}
@@ -2267,7 +2267,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dave Child (https://code.google.com/p/php-email-address-validation/) */
 	func testXMLTestOriginal118() {
 		let email = String(data: Data(#"test@123.123.123.123]"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errExpectingAtext)
 	}
@@ -2275,7 +2275,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Phil Haack (https://haacked.com/archive/2007/08/21/i-knew-how-to-validate-an-email-address-until-i.aspx) */
 	func testXMLTestOriginal119() {
 		let email = String(data: Data(#"NotAnEmail"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errNodomain)
 	}
@@ -2283,7 +2283,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Phil Haack (https://haacked.com/archive/2007/08/21/i-knew-how-to-validate-an-email-address-until-i.aspx) */
 	func testXMLTestOriginal120() {
 		let email = String(data: Data(#"@NotAnEmail"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errNolocalpart)
 	}
@@ -2291,7 +2291,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Phil Haack (https://haacked.com/archive/2007/08/21/i-knew-how-to-validate-an-email-address-until-i.aspx) */
 	func testXMLTestOriginal121() {
 		let email = String(data: Data(#"\042test\\\\blah\042@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5321) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5321Quotedstring)
 	}
@@ -2299,7 +2299,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Phil Haack (https://haacked.com/archive/2007/08/21/i-knew-how-to-validate-an-email-address-until-i.aspx) */
 	func testXMLTestOriginal122() {
 		let email = String(data: Data(#"\042test\\blah\042@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5321) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5321Quotedstring)
 	}
@@ -2307,7 +2307,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Phil Haack (https://haacked.com/archive/2007/08/21/i-knew-how-to-validate-an-email-address-until-i.aspx) */
 	func testXMLTestOriginal123() {
 		let email = String(data: Data(#"\042test\\\015blah\042@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .deprec) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .deprecQp)
 	}
@@ -2315,7 +2315,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Phil Haack (https://haacked.com/archive/2007/08/21/i-knew-how-to-validate-an-email-address-until-i.aspx) */
 	func testXMLTestOriginal124() {
 		let email = String(data: Data(#"\042test\015blah\042@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errCrNoLf)
 	}
@@ -2323,7 +2323,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Phil Haack (https://haacked.com/archive/2007/08/21/i-knew-how-to-validate-an-email-address-until-i.aspx) */
 	func testXMLTestOriginal125() {
 		let email = String(data: Data(#"\042test\\\042blah\042@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5321) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5321Quotedstring)
 	}
@@ -2331,7 +2331,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Phil Haack (https://haacked.com/archive/2007/08/21/i-knew-how-to-validate-an-email-address-until-i.aspx) */
 	func testXMLTestOriginal126() {
 		let email = String(data: Data(#"\042test\042blah\042@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errAtextAfterQs)
 	}
@@ -2339,7 +2339,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Phil Haack (https://haacked.com/archive/2007/08/21/i-knew-how-to-validate-an-email-address-until-i.aspx) */
 	func testXMLTestOriginal127() {
 		let email = String(data: Data(#"customer/department@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .validCategory) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .valid)
 	}
@@ -2347,7 +2347,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Phil Haack (https://haacked.com/archive/2007/08/21/i-knew-how-to-validate-an-email-address-until-i.aspx) */
 	func testXMLTestOriginal128() {
 		let email = String(data: Data(#"_Yosemite.Sam@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .validCategory) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .valid)
 	}
@@ -2355,7 +2355,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Phil Haack (https://haacked.com/archive/2007/08/21/i-knew-how-to-validate-an-email-address-until-i.aspx) */
 	func testXMLTestOriginal129() {
 		let email = String(data: Data(#"~@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .validCategory) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .valid)
 	}
@@ -2363,7 +2363,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Phil Haack (https://haacked.com/archive/2007/08/21/i-knew-how-to-validate-an-email-address-until-i.aspx) */
 	func testXMLTestOriginal130() {
 		let email = String(data: Data(#".wooly@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errDotStart)
 	}
@@ -2371,7 +2371,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Phil Haack (https://haacked.com/archive/2007/08/21/i-knew-how-to-validate-an-email-address-until-i.aspx) */
 	func testXMLTestOriginal131() {
 		let email = String(data: Data(#"wo..oly@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errConsecutivedots)
 	}
@@ -2379,7 +2379,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Phil Haack (https://haacked.com/archive/2007/08/21/i-knew-how-to-validate-an-email-address-until-i.aspx) */
 	func testXMLTestOriginal132() {
 		let email = String(data: Data(#"pootietang.@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errDotEnd)
 	}
@@ -2387,7 +2387,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Phil Haack (https://haacked.com/archive/2007/08/21/i-knew-how-to-validate-an-email-address-until-i.aspx) */
 	func testXMLTestOriginal133() {
 		let email = String(data: Data(#".@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errDotStart)
 	}
@@ -2395,7 +2395,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Phil Haack (https://haacked.com/archive/2007/08/21/i-knew-how-to-validate-an-email-address-until-i.aspx) */
 	func testXMLTestOriginal134() {
 		let email = String(data: Data(#"\042Austin@Powers\042@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5321) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5321Quotedstring)
 	}
@@ -2403,7 +2403,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Phil Haack (https://haacked.com/archive/2007/08/21/i-knew-how-to-validate-an-email-address-until-i.aspx) */
 	func testXMLTestOriginal135() {
 		let email = String(data: Data(#"Ima.Fool@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .validCategory) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .valid)
 	}
@@ -2411,7 +2411,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Phil Haack (https://haacked.com/archive/2007/08/21/i-knew-how-to-validate-an-email-address-until-i.aspx) */
 	func testXMLTestOriginal136() {
 		let email = String(data: Data(#"\042Ima.Fool\042@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5321) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5321Quotedstring)
 	}
@@ -2419,7 +2419,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Phil Haack (https://haacked.com/archive/2007/08/21/i-knew-how-to-validate-an-email-address-until-i.aspx) */
 	func testXMLTestOriginal137() {
 		let email = String(data: Data(#"\042Ima Fool\042@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5321) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5321Quotedstring)
 	}
@@ -2427,7 +2427,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Phil Haack (https://haacked.com/archive/2007/08/21/i-knew-how-to-validate-an-email-address-until-i.aspx) */
 	func testXMLTestOriginal138() {
 		let email = String(data: Data(#"Ima Fool@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errAtextAfterCfws)
 	}
@@ -2435,7 +2435,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Phil Haack (https://haacked.com/archive/2007/08/21/i-knew-how-to-validate-an-email-address-until-i.aspx) */
 	func testXMLTestOriginal139() {
 		let email = String(data: Data(#"phil.h\\@\\@ck@haacked.com"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errExpectingAtext)
 	}
@@ -2443,7 +2443,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTestOriginal140() {
 		let email = String(data: Data(#"\042first\042.\042last\042@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .deprec) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .deprecLocalpart)
 	}
@@ -2451,7 +2451,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTestOriginal141() {
 		let email = String(data: Data(#"\042first\042.middle.\042last\042@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .deprec) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .deprecLocalpart)
 	}
@@ -2459,7 +2459,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTestOriginal142() {
 		let email = String(data: Data(#"\042first\\\\\042last\042@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errAtextAfterQs)
 	}
@@ -2467,7 +2467,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTestOriginal143() {
 		let email = String(data: Data(#"\042first\042.last@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .deprec) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .deprecLocalpart)
 	}
@@ -2475,7 +2475,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTestOriginal144() {
 		let email = String(data: Data(#"first.\042last\042@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .deprec) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .deprecLocalpart)
 	}
@@ -2483,7 +2483,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTestOriginal145() {
 		let email = String(data: Data(#"\042first\042.\042middle\042.\042last\042@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .deprec) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .deprecLocalpart)
 	}
@@ -2491,7 +2491,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTestOriginal146() {
 		let email = String(data: Data(#"\042first.middle\042.\042last\042@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .deprec) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .deprecLocalpart)
 	}
@@ -2499,7 +2499,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTestOriginal147() {
 		let email = String(data: Data(#"\042first.middle.last\042@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5321) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5321Quotedstring)
 	}
@@ -2507,7 +2507,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTestOriginal148() {
 		let email = String(data: Data(#"\042first..last\042@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5321) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5321Quotedstring)
 	}
@@ -2515,7 +2515,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Cal Henderson (https://code.iamcal.com/php/rfc822/) */
 	func testXMLTestOriginal149() {
 		let email = String(data: Data(#"foo@[\\1.2.3.4]"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5322) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5322DomlitObsdtext)
 	}
@@ -2523,7 +2523,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTestOriginal150() {
 		let email = String(data: Data(#"\042first\\\\\\\042last\042@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5321) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5321Quotedstring)
 	}
@@ -2531,7 +2531,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTestOriginal151() {
 		let email = String(data: Data(#"first.\042mid\\dle\042.\042last\042@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .deprec) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .deprecLocalpart)
 	}
@@ -2539,7 +2539,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTestOriginal152() {
 		let email = String(data: Data(#"Test.\015\012 Folding.\015\012 Whitespace@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .deprec) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .deprecFws)
 	}
@@ -2547,7 +2547,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTestOriginal153() {
 		let email = String(data: Data(#"first.\042\042.last@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .deprec) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .deprecLocalpart)
 	}
@@ -2555,7 +2555,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTestOriginal154() {
 		let email = String(data: Data(#"first\\last@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errExpectingAtext)
 	}
@@ -2563,7 +2563,7 @@ class DominicSayersTests : XCTestCase {
 	/* From RFC 3696 erratum 246 (https://www.rfc-editor.org/errata_search.php?rfc=3696&eid=246) */
 	func testXMLTestOriginal155() {
 		let email = String(data: Data(#"Abc\\@def@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errExpectingAtext)
 	}
@@ -2571,7 +2571,7 @@ class DominicSayersTests : XCTestCase {
 	/* From RFC 3696 erratum 246 (https://www.rfc-editor.org/errata_search.php?rfc=3696&eid=246) */
 	func testXMLTestOriginal156() {
 		let email = String(data: Data(#"Fred\\ Bloggs@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errExpectingAtext)
 	}
@@ -2579,7 +2579,7 @@ class DominicSayersTests : XCTestCase {
 	/* From RFC 3696 erratum 246 (https://www.rfc-editor.org/errata_search.php?rfc=3696&eid=246) */
 	func testXMLTestOriginal157() {
 		let email = String(data: Data(#"Joe.\\\\Blow@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errExpectingAtext)
 	}
@@ -2587,7 +2587,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Cal Henderson (https://code.iamcal.com/php/rfc822/) */
 	func testXMLTestOriginal158() {
 		let email = String(data: Data(#"first.last@[IPv6:1111:2222:3333:4444:5555:6666:12.34.567.89]"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5322) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5322Ipv6Badchar)
 	}
@@ -2595,7 +2595,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Cal Henderson (https://code.iamcal.com/php/rfc822/) */
 	func testXMLTestOriginal159() {
 		let email = String(data: Data(#"\042test\\\015\012 blah\042@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errExpectingQtext)
 	}
@@ -2603,7 +2603,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Phil Haack (https://haacked.com/archive/2007/08/21/i-knew-how-to-validate-an-email-address-until-i.aspx) */
 	func testXMLTestOriginal160() {
 		let email = String(data: Data(#"\042test\015\012 blah\042@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .cfws) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .cfwsFws)
 	}
@@ -2611,7 +2611,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Doug Lovell (LinuxJournal, June 2007) (https://www.linuxjournal.com/article/9585) */
 	func testXMLTestOriginal161() {
 		let email = String(data: Data(#"{^c\\@**Dog^}@cartoon.com"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errExpectingAtext)
 	}
@@ -2619,7 +2619,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Cal Henderson (https://code.iamcal.com/php/rfc822/) */
 	func testXMLTestOriginal162() {
 		let email = String(data: Data(#"(foo)cal(bar)@(baz)iamcal.com(quux)"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .deprec) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .deprecCfwsNearAt)
 	}
@@ -2627,7 +2627,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Cal Henderson (https://code.iamcal.com/php/rfc822/) */
 	func testXMLTestOriginal163() {
 		let email = String(data: Data(#"cal@iamcal(woo).(yay)com"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .deprec) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .deprecComment)
 	}
@@ -2635,7 +2635,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Cal Henderson (https://code.iamcal.com/php/rfc822/) */
 	func testXMLTestOriginal164() {
 		let email = String(data: Data(#"\042foo\042(yay)@(hoopla)[1.2.3.4]"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .deprec) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .deprecCfwsNearAt)
 	}
@@ -2643,7 +2643,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Cal Henderson (https://code.iamcal.com/php/rfc822/) */
 	func testXMLTestOriginal165() {
 		let email = String(data: Data(#"cal(woo(yay)hoopla)@iamcal.com"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .deprec) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .deprecCfwsNearAt)
 	}
@@ -2651,7 +2651,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Cal Henderson (https://code.iamcal.com/php/rfc822/) */
 	func testXMLTestOriginal166() {
 		let email = String(data: Data(#"cal(foo\\@bar)@iamcal.com"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .deprec) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .deprecCfwsNearAt)
 	}
@@ -2659,7 +2659,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Cal Henderson (https://code.iamcal.com/php/rfc822/) */
 	func testXMLTestOriginal167() {
 		let email = String(data: Data(#"cal(foo\\)bar)@iamcal.com"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .deprec) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .deprecCfwsNearAt)
 	}
@@ -2667,7 +2667,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Cal Henderson (https://code.iamcal.com/php/rfc822/) */
 	func testXMLTestOriginal168() {
 		let email = String(data: Data(#"cal(foo(bar)@iamcal.com"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errUnclosedcomment)
 	}
@@ -2675,7 +2675,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Cal Henderson (https://code.iamcal.com/php/rfc822/) */
 	func testXMLTestOriginal169() {
 		let email = String(data: Data(#"cal(foo)bar)@iamcal.com"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errAtextAfterCfws)
 	}
@@ -2683,7 +2683,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Cal Henderson (https://code.iamcal.com/php/rfc822/) */
 	func testXMLTestOriginal170() {
 		let email = String(data: Data(#"cal(foo\\)@iamcal.com"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errUnclosedcomment)
 	}
@@ -2691,7 +2691,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTestOriginal171() {
 		let email = String(data: Data(#"first().last@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .deprec) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .deprecLocalpart)
 	}
@@ -2699,7 +2699,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTestOriginal172() {
 		let email = String(data: Data(#"first.(\015\012 middle\015\012 )last@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .deprec) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .deprecComment)
 	}
@@ -2707,7 +2707,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTestOriginal173() {
 		let email = String(data: Data(#"first(12345678901234567890123456789012345678901234567890)last@(1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890)iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errAtextAfterCfws)
 	}
@@ -2715,7 +2715,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTestOriginal174() {
 		let email = String(data: Data(#"first(Welcome to\015\012 the (\042wonderful\042 (!)) world\015\012 of email)@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .deprec) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .deprecCfwsNearAt)
 	}
@@ -2723,7 +2723,7 @@ class DominicSayersTests : XCTestCase {
 	/* From RFC 5322 (https://tools.ietf.org/html/rfc5322) */
 	func testXMLTestOriginal175() {
 		let email = String(data: Data(#"pete(his account)@silly.test(his host)"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .deprec) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .deprecCfwsNearAt)
 	}
@@ -2731,7 +2731,7 @@ class DominicSayersTests : XCTestCase {
 	/* From RFC 5322 (https://tools.ietf.org/html/rfc5322) */
 	func testXMLTestOriginal176() {
 		let email = String(data: Data(#"c@(Chris's host.)public.example"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .deprec) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .deprecCfwsNearAt)
 	}
@@ -2739,7 +2739,7 @@ class DominicSayersTests : XCTestCase {
 	/* From RFC 5322 (https://tools.ietf.org/html/rfc5322) */
 	func testXMLTestOriginal177() {
 		let email = String(data: Data(#"jdoe@machine(comment).  example"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .deprec) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .deprecFws)
 	}
@@ -2747,7 +2747,7 @@ class DominicSayersTests : XCTestCase {
 	/* From RFC 5322 (https://tools.ietf.org/html/rfc5322) */
 	func testXMLTestOriginal178() {
 		let email = String(data: Data(#"1234   @   local(blah)  .machine .example"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .deprec) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .deprecCfwsNearAt)
 	}
@@ -2755,7 +2755,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTestOriginal179() {
 		let email = String(data: Data(#"first(middle)last@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errAtextAfterCfws)
 	}
@@ -2763,7 +2763,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTestOriginal180() {
 		let email = String(data: Data(#"first(abc.def).last@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .deprec) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .deprecLocalpart)
 	}
@@ -2771,7 +2771,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTestOriginal181() {
 		let email = String(data: Data(#"first(a\042bc.def).last@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .deprec) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .deprecLocalpart)
 	}
@@ -2779,7 +2779,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTestOriginal182() {
 		let email = String(data: Data(#"first.(\042)middle.last(\042)@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .deprec) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .deprecCfwsNearAt)
 	}
@@ -2787,7 +2787,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTestOriginal183() {
 		let email = String(data: Data(#"first(abc(\042def\042.ghi).mno)middle(abc(\042def\042.ghi).mno).last@(abc(\042def\042.ghi).mno)example(abc(\042def\042.ghi).mno).(abc(\042def\042.ghi).mno)com(abc(\042def\042.ghi).mno)"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errAtextAfterCfws)
 	}
@@ -2795,7 +2795,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTestOriginal184() {
 		let email = String(data: Data(#"first(abc\\(def)@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .deprec) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .deprecCfwsNearAt)
 	}
@@ -2803,7 +2803,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Cal Henderson (https://code.iamcal.com/php/rfc822/) */
 	func testXMLTestOriginal185() {
 		let email = String(data: Data(#"first.last@iana(1234567890123456789012345678901234567890123456789012345678901234567890).org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .cfws) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .cfwsComment)
 	}
@@ -2811,7 +2811,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Cal Henderson (https://code.iamcal.com/php/rfc822/) */
 	func testXMLTestOriginal186() {
 		let email = String(data: Data(#"a(a(b(c)d(e(f))g)h(i)j)@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .deprec) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .deprecCfwsNearAt)
 	}
@@ -2819,7 +2819,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Cal Henderson (https://code.iamcal.com/php/rfc822/) */
 	func testXMLTestOriginal187() {
 		let email = String(data: Data(#"a(a(b(c)d(e(f))g)(h(i)j)@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errUnclosedcomment)
 	}
@@ -2827,7 +2827,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Paul Gregg (https://pgregg.com/projects/php/code/showvalidemail.php) */
 	func testXMLTestOriginal188() {
 		let email = String(data: Data(#"name.lastname@domain.com"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .validCategory) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .valid)
 	}
@@ -2835,7 +2835,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Paul Gregg (https://pgregg.com/projects/php/code/showvalidemail.php) */
 	func testXMLTestOriginal189() {
 		let email = String(data: Data(#".@"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errDotStart)
 	}
@@ -2843,7 +2843,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Paul Gregg (https://pgregg.com/projects/php/code/showvalidemail.php) */
 	func testXMLTestOriginal190() {
 		let email = String(data: Data(#"a@b"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5321) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5321Tld)
 	}
@@ -2851,7 +2851,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Paul Gregg (https://pgregg.com/projects/php/code/showvalidemail.php) */
 	func testXMLTestOriginal191() {
 		let email = String(data: Data(#"@bar.com"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errNolocalpart)
 	}
@@ -2859,7 +2859,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Paul Gregg (https://pgregg.com/projects/php/code/showvalidemail.php) */
 	func testXMLTestOriginal192() {
 		let email = String(data: Data(#"@@bar.com"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errNolocalpart)
 	}
@@ -2867,7 +2867,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Paul Gregg (https://pgregg.com/projects/php/code/showvalidemail.php) */
 	func testXMLTestOriginal193() {
 		let email = String(data: Data(#"a@bar.com"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .validCategory) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .valid)
 	}
@@ -2875,7 +2875,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Paul Gregg (https://pgregg.com/projects/php/code/showvalidemail.php) */
 	func testXMLTestOriginal194() {
 		let email = String(data: Data(#"aaa.com"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errNodomain)
 	}
@@ -2883,7 +2883,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Paul Gregg (https://pgregg.com/projects/php/code/showvalidemail.php) */
 	func testXMLTestOriginal195() {
 		let email = String(data: Data(#"aaa@.com"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errDotStart)
 	}
@@ -2891,7 +2891,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Paul Gregg (https://pgregg.com/projects/php/code/showvalidemail.php) */
 	func testXMLTestOriginal196() {
 		let email = String(data: Data(#"aaa@.123"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errDotStart)
 	}
@@ -2899,7 +2899,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Paul Gregg (https://pgregg.com/projects/php/code/showvalidemail.php) */
 	func testXMLTestOriginal197() {
 		let email = String(data: Data(#"aaa@[123.123.123.123]"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5321) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5321Addressliteral)
 	}
@@ -2907,7 +2907,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Paul Gregg (https://pgregg.com/projects/php/code/showvalidemail.php) */
 	func testXMLTestOriginal198() {
 		let email = String(data: Data(#"aaa@[123.123.123.123]a"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errAtextAfterDomlit)
 	}
@@ -2915,7 +2915,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Paul Gregg (https://pgregg.com/projects/php/code/showvalidemail.php) */
 	func testXMLTestOriginal199() {
 		let email = String(data: Data(#"aaa@[123.123.123.333]"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5322) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5322Domainliteral)
 	}
@@ -2923,7 +2923,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Paul Gregg (https://pgregg.com/projects/php/code/showvalidemail.php) */
 	func testXMLTestOriginal200() {
 		let email = String(data: Data(#"a@bar.com."#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errDotEnd)
 	}
@@ -2931,7 +2931,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Paul Gregg (https://pgregg.com/projects/php/code/showvalidemail.php) */
 	func testXMLTestOriginal201() {
 		let email = String(data: Data(#"a@bar"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5321) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5321Tld)
 	}
@@ -2939,7 +2939,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Paul Gregg (https://pgregg.com/projects/php/code/showvalidemail.php) */
 	func testXMLTestOriginal202() {
 		let email = String(data: Data(#"a-b@bar.com"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .validCategory) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .valid)
 	}
@@ -2947,7 +2947,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Paul Gregg (https://pgregg.com/projects/php/code/showvalidemail.php) */
 	func testXMLTestOriginal203() {
 		let email = String(data: Data(#"+@b.c"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .validCategory) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .valid)
 	}
@@ -2955,7 +2955,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Paul Gregg (https://pgregg.com/projects/php/code/showvalidemail.php) */
 	func testXMLTestOriginal204() {
 		let email = String(data: Data(#"+@b.com"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .validCategory) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .valid)
 	}
@@ -2963,7 +2963,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Paul Gregg (https://pgregg.com/projects/php/code/showvalidemail.php) */
 	func testXMLTestOriginal205() {
 		let email = String(data: Data(#"a@-b.com"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errDomainhyphenstart)
 	}
@@ -2971,7 +2971,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Paul Gregg (https://pgregg.com/projects/php/code/showvalidemail.php) */
 	func testXMLTestOriginal206() {
 		let email = String(data: Data(#"a@b-.com"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errDomainhyphenend)
 	}
@@ -2979,7 +2979,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Paul Gregg (https://pgregg.com/projects/php/code/showvalidemail.php) */
 	func testXMLTestOriginal207() {
 		let email = String(data: Data(#"-@..com"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errDotStart)
 	}
@@ -2987,7 +2987,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Paul Gregg (https://pgregg.com/projects/php/code/showvalidemail.php) */
 	func testXMLTestOriginal208() {
 		let email = String(data: Data(#"-@a..com"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errConsecutivedots)
 	}
@@ -2995,7 +2995,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Paul Gregg (https://pgregg.com/projects/php/code/showvalidemail.php) */
 	func testXMLTestOriginal209() {
 		let email = String(data: Data(#"a@b.co-foo.uk"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .validCategory) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .valid)
 	}
@@ -3003,7 +3003,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Paul Gregg (https://pgregg.com/projects/php/code/showvalidemail.php) */
 	func testXMLTestOriginal210() {
 		let email = String(data: Data(#"\042hello my name is\042@stutter.com"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5321) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5321Quotedstring)
 	}
@@ -3011,7 +3011,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Paul Gregg (https://pgregg.com/projects/php/code/showvalidemail.php) */
 	func testXMLTestOriginal211() {
 		let email = String(data: Data(#"\042Test \\\042Fail\\\042 Ing\042@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5321) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5321Quotedstring)
 	}
@@ -3019,7 +3019,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Paul Gregg (https://pgregg.com/projects/php/code/showvalidemail.php) */
 	func testXMLTestOriginal212() {
 		let email = String(data: Data(#"valid@about.museum"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .validCategory) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .valid)
 	}
@@ -3027,7 +3027,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Paul Gregg (https://pgregg.com/projects/php/code/showvalidemail.php) */
 	func testXMLTestOriginal213() {
 		let email = String(data: Data(#"invalid@about.museum-"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errDomainhyphenend)
 	}
@@ -3035,7 +3035,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Paul Gregg (https://pgregg.com/projects/php/code/showvalidemail.php) */
 	func testXMLTestOriginal214() {
 		let email = String(data: Data(#"shaitan@my-domain.thisisminekthx"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .validCategory) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .valid)
 	}
@@ -3043,7 +3043,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Paul Gregg (https://pgregg.com/projects/php/code/showvalidemail.php) */
 	func testXMLTestOriginal215() {
 		let email = String(data: Data(#"test@...........com"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errDotStart)
 	}
@@ -3051,7 +3051,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Paul Gregg (https://pgregg.com/projects/php/code/showvalidemail.php) */
 	func testXMLTestOriginal216() {
 		let email = String(data: Data(#"foobar@192.168.0.1"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5321) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5321Tldnumeric)
 	}
@@ -3059,7 +3059,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Paul Gregg (https://pgregg.com/projects/php/code/showvalidemail.php) */
 	func testXMLTestOriginal217() {
 		let email = String(data: Data(#"\042Joe\\\\Blow\042@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5321) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5321Quotedstring)
 	}
@@ -3067,7 +3067,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Paul Gregg (https://pgregg.com/projects/php/code/showvalidemail.php) */
 	func testXMLTestOriginal218() {
 		let email = String(data: Data(#"Invalid \\\012 Folding \\\012 Whitespace@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errAtextAfterCfws)
 	}
@@ -3075,7 +3075,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Paul Gregg (https://pgregg.com/projects/php/code/showvalidemail.php) */
 	func testXMLTestOriginal219() {
 		let email = String(data: Data(#"HM2Kinsists@(that comments are allowed)this.is.ok"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .deprec) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .deprecCfwsNearAt)
 	}
@@ -3083,7 +3083,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Paul Gregg (https://pgregg.com/projects/php/code/showvalidemail.php) */
 	func testXMLTestOriginal220() {
 		let email = String(data: Data(#"user%uucp!path@berkeley.edu"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .validCategory) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .valid)
 	}
@@ -3091,7 +3091,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTestOriginal221() {
 		let email = String(data: Data(#"\042first(last)\042@iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5321) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5321Quotedstring)
 	}
@@ -3099,7 +3099,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTestOriginal222() {
 		let email = String(data: Data(#" \015\012 (\015\012 x \015\012 ) \015\012 first\015\012 ( \015\012 x\015\012 ) \015\012 .\015\012 ( \015\012 x) \015\012 last \015\012 (  x \015\012 ) \015\012 @iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .deprec) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .deprecCfwsNearAt)
 	}
@@ -3107,7 +3107,7 @@ class DominicSayersTests : XCTestCase {
 	/* From John Kloor (https://isemail.info) */
 	func testXMLTestOriginal223() {
 		let email = String(data: Data(#"first.last @iana.org"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .deprec) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .deprecCfwsNearAt)
 	}
@@ -3115,7 +3115,7 @@ class DominicSayersTests : XCTestCase {
 	/* From George Pollard (https://porg.es/blog/properly-validating-e-mail-addresses) */
 	func testXMLTestOriginal224() {
 		let email = String(data: Data(#"test. \015\012 \015\012 obs@syntax.com"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .deprec) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .deprecFws)
 	}
@@ -3123,7 +3123,7 @@ class DominicSayersTests : XCTestCase {
 	/* From George Pollard (https://porg.es/blog/properly-validating-e-mail-addresses) */
 	func testXMLTestOriginal225() {
 		let email = String(data: Data(#"test.\015\012\015\012 obs@syntax.com"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errFwsCrlfX2)
 	}
@@ -3131,7 +3131,7 @@ class DominicSayersTests : XCTestCase {
 	/* From George Pollard (https://porg.es/blog/properly-validating-e-mail-addresses) */
 	func testXMLTestOriginal226() {
 		let email = String(data: Data(#"\042Unicode NULL \\\000\042@char.com"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .deprec) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .deprecQp)
 	}
@@ -3139,7 +3139,7 @@ class DominicSayersTests : XCTestCase {
 	/* From George Pollard (https://porg.es/blog/properly-validating-e-mail-addresses) */
 	func testXMLTestOriginal227() {
 		let email = String(data: Data(#"\042Unicode NULL \000\042@char.com"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errExpectingQtext)
 	}
@@ -3147,7 +3147,7 @@ class DominicSayersTests : XCTestCase {
 	/* From George Pollard (https://porg.es/blog/properly-validating-e-mail-addresses) */
 	func testXMLTestOriginal228() {
 		let email = String(data: Data(#"Unicode NULL \\\000@char.com"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errAtextAfterCfws)
 	}
@@ -3155,7 +3155,7 @@ class DominicSayersTests : XCTestCase {
 	/* From cdburgess (https://isemail.info/#comment-30024957) */
 	func testXMLTestOriginal229() {
 		let email = String(data: Data(#"cdburgess+!\043$%&'*-/=?+_{}|~test@gmail.com"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .validCategory) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .valid)
 	}
@@ -3163,7 +3163,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTestOriginal230() {
 		let email = String(data: Data(#"first.last@[IPv6:::a2:a3:a4:b1:b2:b3:b4]"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5321) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5321Ipv6Deprecated)
 	}
@@ -3171,7 +3171,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTestOriginal231() {
 		let email = String(data: Data(#"first.last@[IPv6:a1:a2:a3:a4:b1:b2:b3::]"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5321) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5321Ipv6Deprecated)
 	}
@@ -3179,7 +3179,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTestOriginal232() {
 		let email = String(data: Data(#"first.last@[IPv6::]"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5322) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5322Ipv6Colonstrt)
 	}
@@ -3187,7 +3187,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTestOriginal233() {
 		let email = String(data: Data(#"first.last@[IPv6:::]"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5321) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5321Addressliteral)
 	}
@@ -3195,7 +3195,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTestOriginal234() {
 		let email = String(data: Data(#"first.last@[IPv6::::]"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5322) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5322Ipv62X2Xcolon)
 	}
@@ -3203,7 +3203,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTestOriginal235() {
 		let email = String(data: Data(#"first.last@[IPv6::b4]"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5322) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5322Ipv6Colonstrt)
 	}
@@ -3211,7 +3211,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTestOriginal236() {
 		let email = String(data: Data(#"first.last@[IPv6:::b4]"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5321) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5321Addressliteral)
 	}
@@ -3219,7 +3219,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTestOriginal237() {
 		let email = String(data: Data(#"first.last@[IPv6::::b4]"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5322) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5322Ipv62X2Xcolon)
 	}
@@ -3227,7 +3227,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTestOriginal238() {
 		let email = String(data: Data(#"first.last@[IPv6::b3:b4]"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5322) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5322Ipv6Colonstrt)
 	}
@@ -3235,7 +3235,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTestOriginal239() {
 		let email = String(data: Data(#"first.last@[IPv6:::b3:b4]"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5321) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5321Addressliteral)
 	}
@@ -3243,7 +3243,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTestOriginal240() {
 		let email = String(data: Data(#"first.last@[IPv6::::b3:b4]"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5322) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5322Ipv62X2Xcolon)
 	}
@@ -3251,7 +3251,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTestOriginal241() {
 		let email = String(data: Data(#"first.last@[IPv6:a1::b4]"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5321) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5321Addressliteral)
 	}
@@ -3259,7 +3259,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTestOriginal242() {
 		let email = String(data: Data(#"first.last@[IPv6:a1:::b4]"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5322) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5322Ipv62X2Xcolon)
 	}
@@ -3267,7 +3267,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTestOriginal243() {
 		let email = String(data: Data(#"first.last@[IPv6:a1:]"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5322) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5322Ipv6Colonend)
 	}
@@ -3275,7 +3275,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTestOriginal244() {
 		let email = String(data: Data(#"first.last@[IPv6:a1::]"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5321) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5321Addressliteral)
 	}
@@ -3283,7 +3283,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTestOriginal245() {
 		let email = String(data: Data(#"first.last@[IPv6:a1:::]"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5322) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5322Ipv62X2Xcolon)
 	}
@@ -3291,7 +3291,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTestOriginal246() {
 		let email = String(data: Data(#"first.last@[IPv6:a1:a2:]"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5322) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5322Ipv6Colonend)
 	}
@@ -3299,7 +3299,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTestOriginal247() {
 		let email = String(data: Data(#"first.last@[IPv6:a1:a2::]"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5321) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5321Addressliteral)
 	}
@@ -3307,7 +3307,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTestOriginal248() {
 		let email = String(data: Data(#"first.last@[IPv6:a1:a2:::]"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5322) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5322Ipv62X2Xcolon)
 	}
@@ -3315,7 +3315,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTestOriginal249() {
 		let email = String(data: Data(#"first.last@[IPv6:0123:4567:89ab:cdef::]"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5321) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5321Addressliteral)
 	}
@@ -3323,7 +3323,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTestOriginal250() {
 		let email = String(data: Data(#"first.last@[IPv6:0123:4567:89ab:CDEF::]"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5321) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5321Addressliteral)
 	}
@@ -3331,7 +3331,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTestOriginal251() {
 		let email = String(data: Data(#"first.last@[IPv6:::a3:a4:b1:ffff:11.22.33.44]"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5321) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5321Addressliteral)
 	}
@@ -3339,7 +3339,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTestOriginal252() {
 		let email = String(data: Data(#"first.last@[IPv6:::a2:a3:a4:b1:ffff:11.22.33.44]"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5321) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5321Ipv6Deprecated)
 	}
@@ -3347,7 +3347,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTestOriginal253() {
 		let email = String(data: Data(#"first.last@[IPv6:a1:a2:a3:a4::11.22.33.44]"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5321) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5321Addressliteral)
 	}
@@ -3355,7 +3355,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTestOriginal254() {
 		let email = String(data: Data(#"first.last@[IPv6:a1:a2:a3:a4:b1::11.22.33.44]"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5321) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5321Ipv6Deprecated)
 	}
@@ -3363,7 +3363,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTestOriginal255() {
 		let email = String(data: Data(#"first.last@[IPv6::11.22.33.44]"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5322) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5322Ipv6Colonstrt)
 	}
@@ -3371,7 +3371,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTestOriginal256() {
 		let email = String(data: Data(#"first.last@[IPv6::::11.22.33.44]"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5322) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5322Ipv62X2Xcolon)
 	}
@@ -3379,7 +3379,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTestOriginal257() {
 		let email = String(data: Data(#"first.last@[IPv6:a1:11.22.33.44]"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5322) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5322Ipv6Grpcount)
 	}
@@ -3387,7 +3387,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTestOriginal258() {
 		let email = String(data: Data(#"first.last@[IPv6:a1::11.22.33.44]"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5321) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5321Addressliteral)
 	}
@@ -3395,7 +3395,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTestOriginal259() {
 		let email = String(data: Data(#"first.last@[IPv6:a1:::11.22.33.44]"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5322) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5322Ipv62X2Xcolon)
 	}
@@ -3403,7 +3403,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTestOriginal260() {
 		let email = String(data: Data(#"first.last@[IPv6:a1:a2::11.22.33.44]"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5321) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5321Addressliteral)
 	}
@@ -3411,7 +3411,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTestOriginal261() {
 		let email = String(data: Data(#"first.last@[IPv6:a1:a2:::11.22.33.44]"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5322) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5322Ipv62X2Xcolon)
 	}
@@ -3419,7 +3419,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTestOriginal262() {
 		let email = String(data: Data(#"first.last@[IPv6:0123:4567:89ab:cdef::11.22.33.44]"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5321) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5321Addressliteral)
 	}
@@ -3427,7 +3427,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTestOriginal263() {
 		let email = String(data: Data(#"first.last@[IPv6:0123:4567:89ab:cdef::11.22.33.xx]"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5322) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5322Ipv6Badchar)
 	}
@@ -3435,7 +3435,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTestOriginal264() {
 		let email = String(data: Data(#"first.last@[IPv6:0123:4567:89ab:CDEF::11.22.33.44]"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5321) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5321Addressliteral)
 	}
@@ -3443,7 +3443,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTestOriginal265() {
 		let email = String(data: Data(#"first.last@[IPv6:0123:4567:89ab:CDEFF::11.22.33.44]"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5322) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5322Ipv6Badchar)
 	}
@@ -3451,7 +3451,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTestOriginal266() {
 		let email = String(data: Data(#"first.last@[IPv6:a1::a4:b1::b4:11.22.33.44]"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5322) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5322Ipv62X2Xcolon)
 	}
@@ -3459,7 +3459,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTestOriginal267() {
 		let email = String(data: Data(#"first.last@[IPv6:a1::11.22.33]"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5322) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5322Ipv6Badchar)
 	}
@@ -3467,7 +3467,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTestOriginal268() {
 		let email = String(data: Data(#"first.last@[IPv6:a1::11.22.33.44.55]"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5322) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5322Ipv6Badchar)
 	}
@@ -3475,7 +3475,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTestOriginal269() {
 		let email = String(data: Data(#"first.last@[IPv6:a1::b211.22.33.44]"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5322) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5322Ipv6Badchar)
 	}
@@ -3483,7 +3483,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTestOriginal270() {
 		let email = String(data: Data(#"first.last@[IPv6:a1::b2:11.22.33.44]"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5321) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5321Addressliteral)
 	}
@@ -3491,7 +3491,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTestOriginal271() {
 		let email = String(data: Data(#"first.last@[IPv6:a1::b2::11.22.33.44]"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5322) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5322Ipv62X2Xcolon)
 	}
@@ -3499,7 +3499,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTestOriginal272() {
 		let email = String(data: Data(#"first.last@[IPv6:a1::b3:]"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5322) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5322Ipv6Colonend)
 	}
@@ -3507,7 +3507,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTestOriginal273() {
 		let email = String(data: Data(#"first.last@[IPv6::a2::b4]"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5322) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5322Ipv6Colonstrt)
 	}
@@ -3515,7 +3515,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTestOriginal274() {
 		let email = String(data: Data(#"first.last@[IPv6:a1:a2:a3:a4:b1:b2:b3:]"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5322) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5322Ipv6Colonend)
 	}
@@ -3523,7 +3523,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTestOriginal275() {
 		let email = String(data: Data(#"first.last@[IPv6::a2:a3:a4:b1:b2:b3:b4]"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5322) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5322Ipv6Colonstrt)
 	}
@@ -3531,7 +3531,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Daniel Marschall (https://isemail.info) */
 	func testXMLTestOriginal276() {
 		let email = String(data: Data(#"first.last@[IPv6:a1:a2:a3:a4::b1:b2:b3:b4]"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .rfc5322) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .rfc5322Ipv6Maxgrps)
 	}
@@ -3539,7 +3539,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Dominic Sayers (https://isemail.info) */
 	func testXMLTestOriginal277() {
 		let email = String(data: Data(#"test@test.com"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .validCategory) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .valid)
 	}
@@ -3547,7 +3547,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Michael Rushton (https://squiloople.com/tag/email/) */
 	func testXMLTestOriginal278() {
 		let email = String(data: Data(#"test@example.com\012"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .err) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .errExpectingAtext)
 	}
@@ -3555,7 +3555,7 @@ class DominicSayersTests : XCTestCase {
 	/* From Michael Rushton (https://squiloople.com/tag/email/) */
 	func testXMLTestOriginal279() {
 		let email = String(data: Data(#"test@xn--example.com"#.utf8), encoding: .nonLossyASCII)!
-		let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
+		let (validationResult, _, _) = EmailValidator(string: email).evaluateEmail()
 //		XCTAssertEqual(validationResult.category, .validCategory) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 		XCTAssertEqual(validationResult, .valid)
 	}

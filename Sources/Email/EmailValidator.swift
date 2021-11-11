@@ -62,7 +62,7 @@ public class EmailValidator {
 	 The RFC 5321 Mailbox specification is more restrictive (comments, white space and obsolete forms are not allowed).
 	 
 	 - Todo: RFC 6530, 6531, 6532 and 6533 (EAI; aka. IMA; aka. UTF-8 support) */
-	public func evaluateEmail() -> (ValidationDiagnosis, String, String, String?) {
+	public func evaluateEmail() -> (ValidationDiagnosis, String, String) {
 		/* Relevant RFCs:
 		 *    - https://tools.ietf.org/html/rfc5321
 		 *    - https://tools.ietf.org/html/rfc5322
@@ -1025,7 +1025,7 @@ public class EmailValidator {
 		}
 		
 		let finalStatus = returnStatuses.max(by: { $0.value < $1.value })!
-		return (finalStatus, String(cString: parseData.localPart), String(cString: parseData.domain), parseData.literal.flatMap{ String(cString: $0) })
+		return (finalStatus, String(cString: parseData.localPart), String(cString: parseData.domain))
 	}
 	
 	/* ***************
