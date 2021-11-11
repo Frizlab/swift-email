@@ -27,7 +27,7 @@ extension EmailValidator {
 		public let value: Int
 		public let xmlId: String
 		public let description: String
-
+		
 		private init(value v: Int, xmlId pi: String, description d: String) {
 			value = v
 			xmlId = pi
@@ -52,7 +52,7 @@ extension EmailValidator {
 		public let value: String
 		public let xmlId: String
 		public let text: String
-
+		
 		private init(value v: String, xmlId pi: String, text t: String) {
 			value = v
 			xmlId = pi
@@ -107,7 +107,7 @@ extension EmailValidator {
 		public let blockQuoteName: String
 		public let blockQuoteURL: URL
 		public let blockQuote: String
-
+		
 		private init(xmlId pi: String, blockQuoteName bqn: String, blockQuoteURL bqu: URL, blockQuote bq: String) {
 			xmlId = pi
 			blockQuoteName = bqn

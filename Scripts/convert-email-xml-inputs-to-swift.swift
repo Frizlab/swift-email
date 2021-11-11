@@ -129,9 +129,9 @@ guard let categories = validationCodesDocRoot.elements(forName: "Categories").si
 }
 swiftEmailValidationCodesFileContent += """
 extension EmailValidator {
-\t
+	
 	public struct ValidationCategory : Hashable {
-\t\t
+		
 
 """
 var cateogoryValues = Set<Int>()
@@ -167,19 +167,19 @@ for category in categories.elements(forName: "item") {
 	swiftEmailValidationCodesFileContent += ")\n"
 }
 swiftEmailValidationCodesFileContent += """
-\t\t
+		
 		public let value: Int
 		public let xmlId: String
 		public let description: String
-
+		
 		private init(value v: Int, xmlId pi: String, description d: String) {
 			value = v
 			xmlId = pi
 			description = d
 		}
-\t\t
+		
 	}
-\t
+	
 }
 
 """
@@ -193,9 +193,9 @@ swiftEmailValidationCodesFileContent += """
 
 
 extension EmailValidator {
-\t
+	
 	public struct ValidationSMTPInfo : Hashable {
-\t\t
+		
 
 """
 var smtpValues = Set<String>()
@@ -231,19 +231,19 @@ for smtp in allSMTP.elements(forName: "item") {
 	swiftEmailValidationCodesFileContent += ")\n"
 }
 swiftEmailValidationCodesFileContent += """
-\t\t
+		
 		public let value: String
 		public let xmlId: String
 		public let text: String
-
+		
 		private init(value v: String, xmlId pi: String, text t: String) {
 			value = v
 			xmlId = pi
 			text = t
 		}
-\t\t
+		
 	}
-\t
+	
 }
 
 """
@@ -257,9 +257,9 @@ swiftEmailValidationCodesFileContent += """
 
 
 extension EmailValidator {
-\t
+	
 	public struct ValidationReference : Hashable {
-\t\t
+		
 
 """
 var referenceXMLIds = Set<String>()
@@ -299,22 +299,22 @@ for reference in references.elements(forName: "item") {
 	swiftEmailValidationCodesFileContent += ")\n"
 }
 swiftEmailValidationCodesFileContent += """
-\t\t
+		
 		public let xmlId: String
-\t\t
+		
 		public let blockQuoteName: String
 		public let blockQuoteURL: URL
 		public let blockQuote: String
-
+		
 		private init(xmlId pi: String, blockQuoteName bqn: String, blockQuoteURL bqu: URL, blockQuote bq: String) {
 			xmlId = pi
 			blockQuoteName = bqn
 			blockQuoteURL = bqu
 			blockQuote = bq
 		}
-\t\t
+		
 	}
-\t
+	
 }
 
 """
@@ -328,9 +328,9 @@ swiftEmailValidationCodesFileContent += """
 
 
 extension EmailValidator {
-\t
+	
 	public struct ValidationDiagnosis : Hashable {
-\t\t
+		
 
 """
 var diagnosisValues = Set<Int>()
@@ -397,15 +397,15 @@ for diagnosis in diagnoses.elements(forName: "item") {
 	swiftEmailValidationCodesFileContent += ")\n"
 }
 swiftEmailValidationCodesFileContent += """
-\t\t
+		
 		public let xmlId: String
-\t\t
+		
 		public let value: Int
 		public let category: ValidationCategory
 		public let smtpInfo: ValidationSMTPInfo
 		public let references: [ValidationReference]
 		public let description: String
-\t\t
+		
 		private init(xmlId pi: String, value v: Int, category c: ValidationCategory, smtpInfo si: ValidationSMTPInfo, references r: [ValidationReference], description d: String) {
 			xmlId = pi
 			value = v
@@ -414,9 +414,9 @@ swiftEmailValidationCodesFileContent += """
 			references = r
 			description = d
 		}
-\t\t
+		
 	}
-\t
+	
 }
 
 """
@@ -530,7 +530,7 @@ for (id, test) in (tests1DocRoot.elements(forName: "test").map({ ("", $0) }) + t
 
 /* Test file footer. */
 swiftEmailTestsFileContent += """
-\t
+	
 }
 
 """
