@@ -516,11 +516,11 @@ for (id, test) in (tests1DocRoot.elements(forName: "test").map({ ("", $0) }) + t
 	/* Note: We assume that 1/ there won’t be two tests with the same id 2/ the
 	 *       ids will never contain an invalid char in a function name. */
 	swiftEmailTestsFileContent += #"""
-	\#t
+		
 		/* \#(fullSource.replacingOccurrences(of: "/*", with: "/​*").replacingOccurrences(of: "*/", with: "*​/")) */
 		func testXMLTest\#(id)\#(testId)() {
 			let email = \#(address.stringInGeneratedSwift())
-			let validationResult = EmailValidator(string: email).evaluateEmail()
+			let (validationResult, _, _, _) = EmailValidator(string: email).evaluateEmail()
 	//		XCTAssertEqual(validationResult.category, .\#(actualCategory)) /* On the original test set, the category is sometimes not correct. We _cannot_ fail the category (linked with diagnosis by autogeneration), so we don’t test that. */
 			XCTAssertEqual(validationResult, .\#(actualDiagnosis))
 		}
