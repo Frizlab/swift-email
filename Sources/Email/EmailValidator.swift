@@ -1025,7 +1025,7 @@ public class EmailValidator {
 		}
 		
 		let finalStatus = returnStatuses.max(by: { $0.value < $1.value })!
-		return (finalStatus, String(cString: parseData.localPart), String(cString: parseData.domain))
+		return (finalStatus, String(data: Data(parseData.localPart.map{ UInt8(bitPattern: $0) }), encoding: .ascii)!, String(data: Data(parseData.domain.map{ UInt8(bitPattern: $0) }), encoding: .ascii)!)
 	}
 	
 	/* ***************
