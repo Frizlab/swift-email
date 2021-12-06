@@ -17,7 +17,7 @@ import Foundation
 
 
 
-public struct Email {
+public struct Email : Hashable, Equatable {
 	
 	public var localPart: String
 	public var domainPart: String
