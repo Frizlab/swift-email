@@ -33,10 +33,8 @@ assert(String(data: Data(nonLossyASCIIDoubleQuote.utf8), encoding: .nonLossyASCI
 assert(String(data: Data(nonLossyASCIICarriageReturn.utf8), encoding: .nonLossyASCII)! == "\r")
 
 
-let dateFormatter = DateFormatter()
-dateFormatter.locale = Locale(identifier: "en_US")
-dateFormatter.dateStyle = .short
-dateFormatter.timeStyle = .none
+let dateFormatter = ISO8601DateFormatter()
+dateFormatter.formatOptions = [.withInternetDateTime]
 
 /* Needed later when converting the tests. */
 var transforms = (
@@ -110,7 +108,7 @@ var swiftEmailValidationCodesFileContent = """
  * Created by \(scriptURL.lastPathComponent) on \(dateFormatter.string(from: Date())).
  */
 
-import Foundation
+@preconcurrency import Foundation
 
 
 
@@ -130,7 +128,7 @@ guard let categories = validationCodesDocRoot.elements(forName: "Categories").si
 swiftEmailValidationCodesFileContent += """
 extension EmailValidator {
 	
-	public struct ValidationCategory : Hashable {
+	public struct ValidationCategory : Hashable, Sendable {
 		
 
 """
@@ -194,7 +192,7 @@ swiftEmailValidationCodesFileContent += """
 
 extension EmailValidator {
 	
-	public struct ValidationSMTPInfo : Hashable {
+	public struct ValidationSMTPInfo : Hashable, Sendable {
 		
 
 """
@@ -258,7 +256,7 @@ swiftEmailValidationCodesFileContent += """
 
 extension EmailValidator {
 	
-	public struct ValidationReference : Hashable {
+	public struct ValidationReference : Hashable, Sendable {
 		
 
 """
@@ -329,7 +327,7 @@ swiftEmailValidationCodesFileContent += """
 
 extension EmailValidator {
 	
-	public struct ValidationDiagnosis : Hashable {
+	public struct ValidationDiagnosis : Hashable, Sendable {
 		
 
 """

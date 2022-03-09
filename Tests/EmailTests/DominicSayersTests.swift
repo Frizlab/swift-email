@@ -5,7 +5,7 @@
  * DominicSayersTests.swift
  * EmailTests
  *
- * Created by convert-email-xml-inputs-to-swift.swift on 11/11/21.
+ * Created by convert-email-xml-inputs-to-swift.swift on 2022-03-09T08:32:52Z.
  */
 
 import XCTest

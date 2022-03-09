@@ -5,16 +5,16 @@
  * EmailValidator+ValidationCodes.swift
  * Email
  *
- * Created by convert-email-xml-inputs-to-swift.swift on 11/11/21.
+ * Created by convert-email-xml-inputs-to-swift.swift on 2022-03-09T08:32:52Z.
  */
 
-import Foundation
+@preconcurrency import Foundation
 
 
 
 extension EmailValidator {
 	
-	public struct ValidationCategory : Hashable {
+	public struct ValidationCategory : Hashable, Sendable {
 		
 		public static let validCategory = ValidationCategory(value: 1, xmlId: String(data: Data(#"ISEMAIL_VALID_CATEGORY"#.utf8), encoding: .nonLossyASCII)!, description: String(data: Data(#"Address is valid"#.utf8), encoding: .nonLossyASCII)!)
 		public static let dnswarn = ValidationCategory(value: 7, xmlId: String(data: Data(#"ISEMAIL_DNSWARN"#.utf8), encoding: .nonLossyASCII)!, description: String(data: Data(#"Address is valid but a DNS check was not successful"#.utf8), encoding: .nonLossyASCII)!)
@@ -41,7 +41,7 @@ extension EmailValidator {
 
 extension EmailValidator {
 	
-	public struct ValidationSMTPInfo : Hashable {
+	public struct ValidationSMTPInfo : Hashable, Sendable {
 		
 		public static let code250215 = ValidationSMTPInfo(value: String(data: Data(#"2.1.5"#.utf8), encoding: .nonLossyASCII)!, xmlId: String(data: Data(#"ISEMAIL_META_SMTP_250_215"#.utf8), encoding: .nonLossyASCII)!, text: String(data: Data(#"250 2.1.5 ok"#.utf8), encoding: .nonLossyASCII)!)
 		public static let code553510 = ValidationSMTPInfo(value: String(data: Data(#"5.1.0"#.utf8), encoding: .nonLossyASCII)!, xmlId: String(data: Data(#"ISEMAIL_META_SMTP_553_510"#.utf8), encoding: .nonLossyASCII)!, text: String(data: Data(#"553 5.1.0 Other address status"#.utf8), encoding: .nonLossyASCII)!)
@@ -66,7 +66,7 @@ extension EmailValidator {
 
 extension EmailValidator {
 	
-	public struct ValidationReference : Hashable {
+	public struct ValidationReference : Hashable, Sendable {
 		
 		public static let localPart = ValidationReference(xmlId: String(data: Data(#"local-part"#.utf8), encoding: .nonLossyASCII)!, blockQuoteName: String(data: Data(#"RFC 5322 section 3.4.1"#.utf8), encoding: .nonLossyASCII)!, blockQuoteURL: URL(string: String(data: Data(#"https://tools.ietf.org/html/rfc5322\043section-3.4.1"#.utf8), encoding: .nonLossyASCII)!)!, blockQuote: String(data: Data(#"\012   local-part      =   dot-atom / quoted-string / obs-local-part\012\012   dot-atom        =   [CFWS] dot-atom-text [CFWS]\012\012   dot-atom-text   =   1*atext *(\042.\042 1*atext)\012\012   quoted-string   =   [CFWS]\012                       DQUOTE *([FWS] qcontent) [FWS] DQUOTE\012                       [CFWS]\012\012   obs-local-part  =   word *(\042.\042 word)\012\012   word            =   atom / quoted-string\012\012   atom            =   [CFWS] 1*atext [CFWS]"#.utf8), encoding: .nonLossyASCII)!)
 		public static let localPartMaximum = ValidationReference(xmlId: String(data: Data(#"local-part-maximum"#.utf8), encoding: .nonLossyASCII)!, blockQuoteName: String(data: Data(#"RFC 5322 section 4.5.3.1.1"#.utf8), encoding: .nonLossyASCII)!, blockQuoteURL: URL(string: String(data: Data(#"https://tools.ietf.org/html/rfc5321\043section-4.5.3.1.1"#.utf8), encoding: .nonLossyASCII)!)!, blockQuote: String(data: Data(#"\012   The maximum total length of a user name or other local-part is 64\012   octets."#.utf8), encoding: .nonLossyASCII)!)
@@ -122,7 +122,7 @@ extension EmailValidator {
 
 extension EmailValidator {
 	
-	public struct ValidationDiagnosis : Hashable {
+	public struct ValidationDiagnosis : Hashable, Sendable {
 		
 		public static let valid = ValidationDiagnosis(xmlId: String(data: Data(#"ISEMAIL_VALID"#.utf8), encoding: .nonLossyASCII)!, value: 0, category: .validCategory, smtpInfo: .code250215, references: [], description: String(data: Data(#"Address is valid. Please note that this does not mean the address actually exists, nor even that the domain actually exists. This address could be issued by the domain owner without breaking the rules of any RFCs."#.utf8), encoding: .nonLossyASCII)!)
 		public static let dnswarnNoMxRecord = ValidationDiagnosis(xmlId: String(data: Data(#"ISEMAIL_DNSWARN_NO_MX_RECORD"#.utf8), encoding: .nonLossyASCII)!, value: 5, category: .dnswarn, smtpInfo: .code250215, references: [], description: String(data: Data(#"Couldn't find an MX record for this domain but an A-record does exist"#.utf8), encoding: .nonLossyASCII)!)

@@ -1,5 +1,5 @@
 /*
-Copyright 2021 François Lamboley
+Copyright 2021-2022 François Lamboley
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -17,7 +17,7 @@ import Foundation
 
 
 
-public struct Email : Hashable, Equatable {
+public struct Email : Hashable, Equatable, Sendable {
 	
 	public var localPart: String
 	public var domainPart: String

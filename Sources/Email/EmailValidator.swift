@@ -1,4 +1,5 @@
 /*
+Copyright 2022 François Lamboley
 Copyright 2019 happn
 
 Licensed under the Apache License, Version 2.0 (the "License");
@@ -17,7 +18,7 @@ import Foundation
 
 
 
-public class EmailValidator {
+public final class EmailValidator {
 	
 	private struct ParseData {
 		
