@@ -5,10 +5,10 @@
  * EmailValidator+ValidationCodes.swift
  * Email
  *
- * Created by convert-email-xml-inputs-to-swift.swift on 2022-03-09T08:32:52Z.
+ * Created by convert-email-xml-inputs-to-swift.swift on 2022-09-25T14:05:32Z.
  */
 
-@preconcurrency import Foundation
+import Foundation
 
 
 

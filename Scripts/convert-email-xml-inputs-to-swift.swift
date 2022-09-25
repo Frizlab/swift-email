@@ -108,7 +108,7 @@ var swiftEmailValidationCodesFileContent = """
  * Created by \(scriptURL.lastPathComponent) on \(dateFormatter.string(from: Date())).
  */
 
-@preconcurrency import Foundation
+import Foundation
 
 
 
