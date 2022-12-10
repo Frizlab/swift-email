@@ -46,6 +46,19 @@ extension Email : RawRepresentable {
 }
 
 
+extension Email : LosslessStringConvertible {
+	
+	public init?(_ description: String) {
+		self.init(rawValue: description)
+	}
+	
+	public var description: String {
+		return rawValue
+	}
+	
+}
+
+
 extension Email : Codable {
 	
 	public init(from decoder: Decoder) throws {
