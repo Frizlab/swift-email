@@ -20,19 +20,6 @@ let swiftEmailMetaURL = URL(fileURLWithPath: "Sources/Email/EmailValidator+Valid
 let isEmailPrefix = "ISEMAIL_"
 
 /* ABSOLUTE CONSTANTS */
-let nonLossyASCIITab = #"\011"#
-let nonLossyASCIINewLine = #"\012"#
-let nonLossyASCIIOctothorpe = #"\043"#
-let nonLossyASCIIDoubleQuote = #"\042"#
-let nonLossyASCIICarriageReturn = #"\015"#
-/* We use these fact later; let’s be sure… */
-assert(String(data: Data(nonLossyASCIITab.utf8), encoding: .nonLossyASCII)! == "\t")
-assert(String(data: Data(nonLossyASCIINewLine.utf8), encoding: .nonLossyASCII)! == "\n")
-assert(String(data: Data(nonLossyASCIIOctothorpe.utf8), encoding: .nonLossyASCII)! == "#")
-assert(String(data: Data(nonLossyASCIIDoubleQuote.utf8), encoding: .nonLossyASCII)! == "\"")
-assert(String(data: Data(nonLossyASCIICarriageReturn.utf8), encoding: .nonLossyASCII)! == "\r")
-
-
 let dateFormatter = ISO8601DateFormatter()
 dateFormatter.formatOptions = [.withInternetDateTime]
 
@@ -85,18 +72,7 @@ extension String {
 	}
 	
 	func stringInGeneratedSwift() -> String {
-#if false
-		/* This is the version I prefer but can’t use for now because String(data:encoding:) with the nonLossyASCII does not work on Linux w/ Swift 6.0. */
-		return ##"String(data: Data(#""## + String(data: data(using: .nonLossyASCII)!, encoding: .ascii)!
-			.replacingOccurrences(of: "\r", with: nonLossyASCIICarriageReturn)
-			.replacingOccurrences(of: "\"", with: nonLossyASCIIDoubleQuote)
-			.replacingOccurrences(of: "#",  with: nonLossyASCIIOctothorpe)
-			.replacingOccurrences(of: "\n", with: nonLossyASCIINewLine)
-			.replacingOccurrences(of: "\t", with: nonLossyASCIITab) + ##""#.utf8), encoding: .nonLossyASCII)!"##
-#else
-		/* Fallback for Linux. */
-		return ##"String(data: Data(base64Encoded: "\##(Data(utf8).base64EncodedString())")!, encoding: .utf8)!"##
-#endif
+		return #""\#(unicodeScalars.lazy.map{ $0.escaped(asASCII: false) }.joined(separator: ""))""#
 	}
 	
 }
