@@ -85,12 +85,18 @@ extension String {
 	}
 	
 	func stringInGeneratedSwift() -> String {
+#if false
+		/* This is the version I prefer but can’t use for now because String(data:encoding:) with the nonLossyASCII does not work on Linux w/ Swift 6.0. */
 		return ##"String(data: Data(#""## + String(data: data(using: .nonLossyASCII)!, encoding: .ascii)!
 			.replacingOccurrences(of: "\r", with: nonLossyASCIICarriageReturn)
 			.replacingOccurrences(of: "\"", with: nonLossyASCIIDoubleQuote)
 			.replacingOccurrences(of: "#",  with: nonLossyASCIIOctothorpe)
 			.replacingOccurrences(of: "\n", with: nonLossyASCIINewLine)
 			.replacingOccurrences(of: "\t", with: nonLossyASCIITab) + ##""#.utf8), encoding: .nonLossyASCII)!"##
+#else
+		/* Fallback for Linux. */
+		return ##"String(data: Data(base64Encoded: "\##(Data(utf8).base64EncodedString())")!, encoding: .utf8)!"##
+#endif
 	}
 	
 }
