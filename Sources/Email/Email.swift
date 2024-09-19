@@ -35,8 +35,10 @@ extension Email : RawRepresentable {
 		guard validationResult.category.value < EmailValidator.ValidationCategory.err.value else {
 			return nil
 		}
-		self.localPart = localPart
-		self.domainPart = domainPart
+		/* If the evaluation does not return an error, the local and domain parts must not be nil.
+		 * (Note the inverse is not true, either or both can be non-nil and the validation be in error.) */
+		self.localPart = localPart!
+		self.domainPart = domainPart!
 	}
 	
 	public var rawValue: String {
@@ -70,8 +72,10 @@ extension Email : Codable {
 		guard validationResult.category.value < EmailValidator.ValidationCategory.err.value else {
 			throw DecodingError.dataCorrupted(.init(codingPath: [], debugDescription: "Invalid email", underlyingError: nil))
 		}
-		self.localPart = localPart
-		self.domainPart = domainPart
+		/* If the evaluation does not return an error, the local and domain parts must not be nil.
+		 * (Note the inverse is not true, either or both can be non-nil and the validation be in error.) */
+		self.localPart = localPart!
+		self.domainPart = domainPart!
 	}
 	
 	public func encode(to encoder: Encoder) throws {

@@ -63,7 +63,7 @@ public final class EmailValidator {
 	 The RFC 5321 Mailbox specification is more restrictive (comments, white space and obsolete forms are not allowed).
 	 
 	 - Todo: RFC 6530, 6531, 6532 and 6533 (EAI; aka. IMA; aka. UTF-8 support) */
-	public func evaluateEmail() -> (ValidationDiagnosis, String, String) {
+	public func evaluateEmail() -> (ValidationDiagnosis, String?, String?) {
 		/* Relevant RFCs:
 		 *    - https://tools.ietf.org/html/rfc5321
 		 *    - https://tools.ietf.org/html/rfc5322
@@ -737,7 +737,7 @@ public final class EmailValidator {
 					 * i.e. obs-qp       =  "\" (%d0-8, %d10-31 / %d127) */
 					let ord = UInt8(bitPattern: token)
 					
-					if	ord > 127 {
+					if ord > 127 {
 						returnStatuses.append(.errExpectingQpair) /* Fatal error */
 					} else if (ord < 31 && ord != 9) || (ord == 127) /* SP & HTAB are allowed */ {
 						returnStatuses.append(.deprecQp)
@@ -1026,7 +1026,7 @@ public final class EmailValidator {
 		}
 		
 		let finalStatus = returnStatuses.max(by: { $0.value < $1.value })!
-		return (finalStatus, String(data: Data(parseData.localPart.map{ UInt8(bitPattern: $0) }), encoding: .ascii)!, String(data: Data(parseData.domain.map{ UInt8(bitPattern: $0) }), encoding: .ascii)!)
+		return (finalStatus, String(data: Data(parseData.localPart.map{ UInt8(bitPattern: $0) }), encoding: .ascii), String(data: Data(parseData.domain.map{ UInt8(bitPattern: $0) }), encoding: .ascii))
 	}
 	
 	/* ***************
